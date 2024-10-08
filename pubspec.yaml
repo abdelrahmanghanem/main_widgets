@@ -1,5 +1,5 @@
 name: main_widgets
-description: "A new Flutter project."
+description: "The MainScreen widget efficiently manages loading, empty, and data display states, with built-in refresh functionality. It simplifies state handling and reduces boilerplate code in Flutter apps."
 version: 0.0.1
 homepage: https://github.com/abdelrahmanghanem
 repository: https://github.com/abdelrahmanghanem/main_widgets
@@ -12,6 +12,7 @@ dependencies:
   flutter:
     sdk: flutter
   lottie: ^3.1.2
+  flutter_svg: ^2.0.10+1
 dev_dependencies:
   flutter_test:
     sdk: flutter

@@ -37,15 +37,17 @@ class _MyHomePageState extends State<MyHomePage> {
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
         title: const Text('home'),
       ),
-      body: Center(
+      body: const Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            const Text(
+            Text(
               'You have pushed the button this many times:',
             ),
             MainLoadingWidget(
-              path: 'e',
+              path: 'assets/animation.gif',
+              // path: 'assets/Animation0.json',
+              type: LoadingType.gif,
             ),
           ],
         ),
