@@ -16,10 +16,16 @@ The `SmartUIComponents` A Flutter package for efficient UI state management, han
 - [Installation](#installation)
 - [Usage](#usage)
 - [Widgets Usage](#widgets-usage)
-  - [SmartScreen](#smart-screen)
-  - [EmptyWidget](#empty-widget)
-  - [SmartLoadingWidget](#smart-loading-widget)
-  - [ShowToast](#show-toast)
+  - [SmartScreen](#smartScreen)
+  - [SmartEmptyWidget](#smartEmptyWidget)
+  - [SmartLoadingWidget](#smartLoadingWidget)
+
+  - [SmartTagWidget](#smartTagWidget)
+- [Functions Usage](#functionsUsage)
+  - [ShowToast](#showToast)
+  - [HexColor](#hexColor)
+  - [Separated](#separated)
+  - [showBottomSheetWidget](#showBottomSheetWidget)
 
 - [Contributions](#contributions)
 - [License](#license)
@@ -74,19 +80,21 @@ Here is an example demonstrating how to use these parameters in the `MainScreen`
       onRefresh: () async {
       // Logic for refreshing data
       },
-      emptyWidget: CustomEmptyWidget(message: "No data available"), // Optional empty widget
+      emptyWidget: CustomEmptyWidget(
+        message: "No data available",
+      ), // Optional empty widget
       message: "Please check back later.", // Optional message for empty state
     );
 ```
 </details>
 
-### EmptyWidget
+### SmartEmptyWidget
 
 <details>
 <summary>Example Code </summary>
 
 ```dart
-  EmptyWidget(
+  SmartEmptyWidget(
      message: 'The message of EmptyWidget',
   ),
 ```
@@ -98,23 +106,99 @@ Here is an example demonstrating how to use these parameters in the `MainScreen`
 <summary>Example Code </summary>
 
 ```dart
-    const SmartLoadingWidget(),
+    const SmartLoadingWidget()
 ```
 ```dart
  SmartLoadingWidget(
     path: 'assets/animation.gif',
     loadingType: LoadingType.gif,
-  ),
+  )
 ```
 ```dart
   const SmartLoadingWidget(
     path: 'assets/animation1.json',
     loadingType: LoadingType.lottie,
-  ),
+  )
 ```
 </details>
 
+### SmartTagWidget
+
+<details>
+<summary>Example Code </summary>
+
+```dart
+  SmartTagWidget(
+    text: 'Tag Text',
+    backgroundColor: Colors.red,
+    textColor: Colors.white,
+  )
+```
+</details>
+
+## Functions Usage
+
+Here is an example demonstrating how to use these parameters in the `Functions` :
+
 ### ShowToast
+
+<details>
+<summary>Example Code </summary>
+
+```dart
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return StyledToast(
+      backgroundColor: Colors.red,
+      textStyle: const TextStyle(
+        color: Colors.black,
+        fontSize: 16,
+      ),
+      locale: const Locale('en', 'US'),
+      child: MaterialApp(
+        title: 'Flutter Demo',
+        theme: ThemeData(
+          colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+          useMaterial3: false,
+        ),
+        home: const MyHomePage(),
+      ),
+    );
+  }
+}
+
+class MyHomePage extends StatelessWidget {
+  const MyHomePage({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
+        title: const Text('home'),
+      ),
+      body: Column(
+        children: [
+          TextButton(
+            onPressed: () => showToastError(msg: 'show Toast Error'),
+            child: const Text('show Toast Error'),
+          ),
+          TextButton(
+            onPressed: () => showToastSuccess(msg: 'show Toast Success'),
+            child: const Text('Show Toast Success'),
+          ),
+        ],
+      ),
+    );
+  }
+}
+```
+</details>
+
+### HexColor
 
 <details>
 <summary>Example Code </summary>

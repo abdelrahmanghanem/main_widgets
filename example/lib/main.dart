@@ -41,6 +41,12 @@ class MyHomePage extends StatelessWidget {
       ),
       body: Column(
         children: [
+          const SmartTagWidget(
+            text: 'hello',
+            textColor: Colors.white,
+            child: Text('ssjsjsjj'),
+            backgroundColor: Colors.red,
+          ),
           TextButton(
             onPressed: () => showToastError(
               msg: 'show Toast Error',
