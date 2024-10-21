@@ -13,9 +13,7 @@ enum EmptyType {
   text,
 }
 
-/// A [EmptyScreen] widget that displays an empty state based on the specified [EmptyType].
-/// It supports three types of empty states: custom, image, and text.
-class EmptyScreen extends StatelessWidget {
+class EmptyWidget extends StatelessWidget {
   /// The message to display in the empty state. Defaults to 'no_data_found' if not provided.
   final String? message;
 
@@ -40,7 +38,7 @@ class EmptyScreen extends StatelessWidget {
   /// The text style to apply to the message.
   final TextStyle? style;
 
-  const EmptyScreen({
+  const EmptyWidget({
     super.key,
     this.message,
     this.child,

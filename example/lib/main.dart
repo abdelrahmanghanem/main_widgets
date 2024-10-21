@@ -8,28 +8,30 @@ void main() {
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: true,
+    return StyledToast(
+      backgroundColor: Colors.red,
+      textStyle: const TextStyle(
+        color: Colors.black,
+        fontSize: 16,
       ),
-      home: const MyHomePage(),
+      locale: const Locale('en', 'US'),
+      child: MaterialApp(
+        title: 'Flutter Demo',
+        theme: ThemeData(
+          colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+          useMaterial3: false,
+        ),
+        home: const MyHomePage(),
+      ),
     );
   }
 }
 
-class MyHomePage extends StatefulWidget {
+class MyHomePage extends StatelessWidget {
   const MyHomePage({super.key});
 
-  @override
-  State<MyHomePage> createState() => _MyHomePageState();
-}
-
-class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -37,20 +39,17 @@ class _MyHomePageState extends State<MyHomePage> {
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
         title: const Text('home'),
       ),
-      body: const Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Text(
-              'You have pushed the button this many times:',
-            ),
-            MainLoadingWidget(
-              path: 'assets/animation.gif',
-              // path: 'assets/Animation0.json',
-              type: LoadingType.gif,
-            ),
-          ],
-        ),
+      body: Column(
+        children: [
+          TextButton(
+            onPressed: () => showToastError(msg: 'show Toast Error'),
+            child: const Text('show Toast Error'),
+          ),
+          TextButton(
+            onPressed: () => showToastSuccess(msg: 'show Toast Success'),
+            child: const Text('Show Toast Success'),
+          ),
+        ],
       ),
     );
   }

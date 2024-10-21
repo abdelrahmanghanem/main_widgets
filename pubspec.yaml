@@ -1,6 +1,6 @@
 name: main_widgets
-description: "The MainScreen widget efficiently manages loading, empty, and data display states, with built-in refresh functionality. It simplifies state handling and reduces boilerplate code in Flutter apps."
-version: 0.0.1
+description: "A Flutter package for efficient UI state management, handling loading, empty views, content display, caching, and pull-to-refresh with customizable widgets."
+version: 0.0.2
 homepage: https://github.com/abdelrahmanghanem
 repository: https://github.com/abdelrahmanghanem/main_widgets
 
@@ -13,6 +13,9 @@ dependencies:
     sdk: flutter
   lottie: ^3.1.2
   flutter_svg: ^2.0.10+1
+  cached_network_image: ^3.4.1
+  flutter_styled_toast:
+    git: https://github.com/abdelrahmanghanem/flutter_styled_toast.git
 dev_dependencies:
   flutter_test:
     sdk: flutter

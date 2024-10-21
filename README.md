@@ -1,6 +1,6 @@
-# MainScreen Widget
+# SmartUIComponents Widget
 
-The `MainScreen` widget is a reusable Flutter component designed to manage different UI states, such as loading, empty content, and displaying data. It includes pull-to-refresh functionality, making it easy to refresh the content from a data source.
+The `SmartUIComponents` A Flutter package for efficient UI state management, handling loading, empty views, content display, caching, and pull-to-refresh with customizable widgets.
 
 <p>
     <a href="https://github.com/abdelrahmanghanem/main_widgets"><img src="https://img.shields.io/github/stars/abdelrahmanghanem/main_widgets?style=social" alt="Repo stars"></a>
@@ -15,7 +15,12 @@ The `MainScreen` widget is a reusable Flutter component designed to manage diffe
 - [Features](#features)
 - [Installation](#installation)
 - [Usage](#usage)
-- [Parameters](#parameters)
+- [Widgets Usage](#widgets-usage)
+  - [SmartScreen](#smart-screen)
+  - [EmptyWidget](#empty-widget)
+  - [SmartLoadingWidget](#smart-loading-widget)
+  - [ShowToast](#show-toast)
+
 - [Contributions](#contributions)
 - [License](#license)
 
@@ -49,48 +54,124 @@ You can use the `MainScreen` widget as follows:
       },
     );
 ```
-## Parameters
 
-- **`isLoading`** (`bool`):
-    - **Description**: Indicates whether the data is currently being loaded.
-    - **Usage**: Set this parameter to `true` when you are fetching data to show a loading indicator.
 
-- **`isEmpty`** (`bool`):
-    - **Description**: Indicates whether the data is empty.
-    - **Usage**: Set this parameter to `true` if there is no data available to display.
 
-- **`child`** (`Widget`):
-    - **Description**: The main content to display when data is available.
-    - **Usage**: Pass your main content widget (e.g., a `ListView`, `GridView`, etc.) to this parameter.
-
-- **`onRefresh`** (`Future<void> Function()`):
-    - **Description**: Callback function that is triggered when the user performs a pull-to-refresh action.
-    - **Usage**: Implement this function to handle the refresh logic, such as re-fetching data.
-
-- **`emptyWidget`** (`Widget?`):
-    - **Description**: A custom widget to display when the data is empty (optional).
-    - **Usage**: If you want to display a specific widget when there's no data, provide it here. If not provided, a default empty state will be shown.
-
-- **`message`** (`String?`):
-    - **Description**: An optional message to display in the empty state widget.
-    - **Usage**: Use this parameter to provide additional context or instructions when there is no data available.
-
-## Example Usage
+## Widgets Usage
 
 Here is an example demonstrating how to use these parameters in the `MainScreen` widget:
 
+### SmartScreen
+
+<details>
+<summary>Example Code </summary>
+
 ```dart
-    MainScreen(
+    SmartScreen(
       isLoading: true, // Data is being loaded
       isEmpty: false, // Data is available
       child: YourMainContentWidget(), // Main content to display
       onRefresh: () async {
-        // Logic for refreshing data
+      // Logic for refreshing data
       },
       emptyWidget: CustomEmptyWidget(message: "No data available"), // Optional empty widget
       message: "Please check back later.", // Optional message for empty state
     );
 ```
+</details>
+
+### EmptyWidget
+
+<details>
+<summary>Example Code </summary>
+
+```dart
+  EmptyWidget(
+     message: 'The message of EmptyWidget',
+  ),
+```
+</details>
+
+### SmartLoadingWidget
+
+<details>
+<summary>Example Code </summary>
+
+```dart
+    const SmartLoadingWidget(),
+```
+```dart
+ SmartLoadingWidget(
+    path: 'assets/animation.gif',
+    loadingType: LoadingType.gif,
+  ),
+```
+```dart
+  const SmartLoadingWidget(
+    path: 'assets/animation1.json',
+    loadingType: LoadingType.lottie,
+  ),
+```
+</details>
+
+### ShowToast
+
+<details>
+<summary>Example Code </summary>
+
+```dart
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return StyledToast(
+      backgroundColor: Colors.red,
+      textStyle: const TextStyle(
+        color: Colors.black,
+        fontSize: 16,
+      ),
+      locale: const Locale('en', 'US'),
+      child: MaterialApp(
+        title: 'Flutter Demo',
+        theme: ThemeData(
+          colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+          useMaterial3: false,
+        ),
+        home: const MyHomePage(),
+      ),
+    );
+  }
+}
+
+class MyHomePage extends StatelessWidget {
+  const MyHomePage({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
+        title: const Text('home'),
+      ),
+      body: Column(
+        children: [
+          TextButton(
+            onPressed: () => showToastError(msg: 'show Toast Error'),
+            child: const Text('show Toast Error'),
+          ),
+          TextButton(
+            onPressed: () => showToastSuccess(msg: 'show Toast Success'),
+            child: const Text('Show Toast Success'),
+          ),
+        ],
+      ),
+    );
+  }
+}
+```
+</details>
+
 ## Contributions
 Feel free to contribute to this project.
 
