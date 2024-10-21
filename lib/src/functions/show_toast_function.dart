@@ -1,7 +1,10 @@
 import 'dart:developer';
 
 import 'package:flutter/material.dart';
-import 'package:flutter_styled_toast/flutter_styled_toast.dart' as toast;
+
+import '../toast/styled_toast.dart';
+import '../toast/styled_toast_enum.dart';
+import '../toast/styled_toast_manage.dart';
 
 enum ToastStatus {
   success,
@@ -18,11 +21,11 @@ void showToastSmart({
   double radius = 12,
   BorderRadiusGeometry? borderRadius,
 }) {
-  toast.dismissAllToast(showAnim: true);
+  dismissAllToast(showAnim: true);
   Future.delayed(
     const Duration(milliseconds: 100),
     () {
-      toast.showToastWidget(
+      showToastWidget(
         builder: (context, theme) => Padding(
           padding: const EdgeInsets.all(8.0),
           child: ConstrainedBox(
@@ -62,7 +65,7 @@ void showToastSmart({
           ),
         ),
         context: context,
-        animation: toast.StyledToastAnimation.fade,
+        animation: StyledToastAnimation.fade,
         animDuration: const Duration(milliseconds: 100),
         duration: const Duration(seconds: 3),
         dismissOtherToast: true,
@@ -76,12 +79,14 @@ void showToastError({
   required String msg,
   Color? backgroundColor,
   Widget? icon,
+  BuildContext? context,
 }) {
   showToastSmart(
     msg: msg,
     status: ToastStatus.failure,
     backgroundColor: backgroundColor,
     icon: icon ?? const Icon(Icons.cancel),
+    context: context,
   );
 }
 
@@ -89,11 +94,13 @@ void showToastSuccess({
   required String msg,
   Color? backgroundColor,
   Widget? icon,
+  BuildContext? context,
 }) {
   showToastSmart(
     msg: msg,
     status: ToastStatus.success,
     backgroundColor: backgroundColor,
     icon: icon ?? const Icon(Icons.check_circle),
+    context: context,
   );
 }

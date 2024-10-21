@@ -42,11 +42,15 @@ class MyHomePage extends StatelessWidget {
       body: Column(
         children: [
           TextButton(
-            onPressed: () => showToastError(msg: 'show Toast Error'),
-            child: const Text('show Toast Error'),
+            onPressed: () => showToastError(
+              msg: 'show Toast Error',
+            ),
+            child: const Text('Show Toast Error'),
           ),
           TextButton(
-            onPressed: () => showToastSuccess(msg: 'show Toast Success'),
+            onPressed: () => showToastSuccess(
+              msg: 'show Toast Success',
+            ),
             child: const Text('Show Toast Success'),
           ),
         ],

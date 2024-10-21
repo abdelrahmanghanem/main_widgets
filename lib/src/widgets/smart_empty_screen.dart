@@ -13,7 +13,7 @@ enum EmptyType {
   text,
 }
 
-class EmptyWidget extends StatelessWidget {
+class SmartEmptyWidget extends StatelessWidget {
   /// The message to display in the empty state. Defaults to 'no_data_found' if not provided.
   final String? message;
 
@@ -38,7 +38,7 @@ class EmptyWidget extends StatelessWidget {
   /// The text style to apply to the message.
   final TextStyle? style;
 
-  const EmptyWidget({
+  const SmartEmptyWidget({
     super.key,
     this.message,
     this.child,

@@ -2,9 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../../main_widgets.dart';
 
-/// A [MainScreen] widget that handles the UI states of loading, empty content,
-/// and displaying data. It includes a pull-to-refresh functionality.
-class MainScreen extends StatelessWidget {
+class SmartScreen extends StatelessWidget {
   /// Indicates whether the data is currently being loaded.
   final bool isLoading;
 
@@ -23,13 +21,7 @@ class MainScreen extends StatelessWidget {
   /// An optional message to display in the empty state widget.
   final String? message;
 
-  /// Creates a [MainScreen] widget.
-  ///
-  /// [child] is required and represents the main content of the screen.
-  /// [isLoading] is required and indicates whether the data is being loaded.
-  /// [isEmpty] is required and indicates whether the data is empty.
-  /// [onRefresh] is required and triggers a pull-to-refresh action.
-  const MainScreen({
+  const SmartScreen({
     super.key,
     required this.child,
     this.isLoading = false,
@@ -57,7 +49,7 @@ class MainScreen extends StatelessWidget {
 /// or displaying data.
 ///
 /// - If [isLoading] is true, it returns a [SmartLoadingWidget].
-/// - If [isEmpty] is true, it returns the [emptyWidget] if provided, or the default [EmptyWidget].
+/// - If [isEmpty] is true, it returns the [emptyWidget] if provided, or the default [SmartEmptyWidget].
 /// - Otherwise, it returns the main content wrapped with a [RefreshIndicator] for pull-to-refresh functionality.
 Widget getWidget({
   required BuildContext context,
@@ -73,7 +65,7 @@ Widget getWidget({
     return const SmartLoadingWidget();
   } else if (isEmpty) {
     // Displays an empty state widget if there is no data.
-    return emptyWidget ?? EmptyWidget(message: message);
+    return emptyWidget ?? SmartEmptyWidget(message: message);
   } else {
     // Displays the main content wrapped with a pull-to-refresh functionality.
     return RefreshIndicator(

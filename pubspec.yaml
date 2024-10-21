@@ -3,6 +3,8 @@ description: "A Flutter package for efficient UI state management, handling load
 version: 0.0.2
 homepage: https://github.com/abdelrahmanghanem
 repository: https://github.com/abdelrahmanghanem/main_widgets
+publish_to: none
+
 
 environment:
   sdk: ^3.5.2
@@ -14,8 +16,9 @@ dependencies:
   lottie: ^3.1.2
   flutter_svg: ^2.0.10+1
   cached_network_image: ^3.4.1
-  flutter_styled_toast:
-    git: https://github.com/abdelrahmanghanem/flutter_styled_toast.git
+  flutter_localizations:
+    sdk: flutter
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
