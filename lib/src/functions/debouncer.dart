@@ -1,17 +1,10 @@
 import 'dart:async';
 import 'dart:ui';
 
-class Debounces {
-  final int milliseconds;
-  VoidCallback? action;
-  Timer? _timer;
+Timer? timer;
 
-  Debounces({this.milliseconds = 500});
+void runDebouncer(VoidCallback action, {int milliseconds = 800}) {
+  timer?.cancel();
 
-  void run(VoidCallback action) {
-    if (_timer != null) {
-      _timer!.cancel();
-    }
-    _timer = Timer(Duration(milliseconds: milliseconds), action);
-  }
+  timer = Timer(Duration(milliseconds: milliseconds), action);
 }

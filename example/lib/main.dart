@@ -44,7 +44,6 @@ class MyHomePage extends StatelessWidget {
           const SmartTagWidget(
             text: 'hello',
             textColor: Colors.white,
-            child: Text('ssjsjsjj'),
             backgroundColor: Colors.red,
           ),
           TextButton(

@@ -14,19 +14,19 @@ The `SmartUIComponents` A Flutter package for efficient UI state management, han
 
 - [Features](#features)
 - [Installation](#installation)
-- [Usage](#usage)
 - [Widgets Usage](#widgets-usage)
-  - [SmartScreen](#smartScreen)
-  - [SmartEmptyWidget](#smartEmptyWidget)
-  - [SmartLoadingWidget](#smartLoadingWidget)
-
-  - [SmartTagWidget](#smartTagWidget)
-- [Functions Usage](#functionsUsage)
-  - [ShowToast](#showToast)
-  - [HexColor](#hexColor)
+  - [SmartCachedImages](#smartcachedimages)
+  - [SmartEmptyWidget](#smartemptywidget)
+  - [SmartLoadingWidget](#smartloadingwidget)
+  - [SmartScreen](#smartscreen)
+  - [SmartTagWidget](#smarttagwidget)
+- [Functions Usage](#functions-usage)
+  - [ShowToast](#showtoast)
+  - [HexColor](#hexcolor)
   - [Separated](#separated)
-  - [showBottomSheetWidget](#showBottomSheetWidget)
-
+  - [showBottomSheetWidget](#showbottomsheet)
+- [Extension Usage](#extension-usage)
+  - [Extensions](#extensions)
 - [Contributions](#contributions)
 - [License](#license)
 
@@ -46,20 +46,7 @@ dependencies:
   main_widgets: <latest_version>
 ```
 
-## Usage
 
-You can use the `MainScreen` widget as follows:
-
-```dart
-    MainScreen(
-      isLoading: true, // Set to true while data is being loaded
-      isEmpty: false, // Set to true if there is no data to display
-      child: YourMainContentWidget(), // The main content to display
-      onRefresh: () async {
-        // Add your refresh logic here
-      },
-    );
-```
 
 
 
@@ -87,6 +74,19 @@ Here is an example demonstrating how to use these parameters in the `MainScreen`
     );
 ```
 </details>
+
+### SmartCachedImages
+
+<details>
+<summary>Example Code </summary>
+
+```dart
+  SmartCachedImages(
+    imageUrl: 'https://example.com/image.jpg',
+  ),
+```
+</details>  
+
 
 ### SmartEmptyWidget
 
@@ -255,6 +255,29 @@ class MyHomePage extends StatelessWidget {
 }
 ```
 </details>
+
+
+## Extensions Usage
+
+Here is an example demonstrating how to use these parameters in the `Extensions` :
+
+### Extensions
+
+<details>
+<summary>Example Code </summary>
+
+```dart
+  Text(
+   context.isArabic? 'isArabic':'isEnglish',
+    style: context.bodySmall.copyWith(
+        color:context.isDark? Colors.white: Colors.black,
+    ),
+  ),
+```
+</details>
+
+
+
 
 ## Contributions
 Feel free to contribute to this project.

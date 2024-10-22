@@ -3,6 +3,8 @@ library main_widgets;
 export 'package:lottie/lottie.dart';
 
 // functions
+export 'src/extension/context_extension.dart';
+// functions
 export 'src/functions/debouncer.dart';
 export 'src/functions/hex_color.dart';
 export 'src/functions/separated_widget.dart';

@@ -252,8 +252,8 @@ ToastFuture showToastWidget({
         child: Directionality(
           textDirection: textDirection!,
           child: Material(
-            child: builder(context, toastTheme),
             color: Colors.transparent,
+            child: builder(context, toastTheme),
           ),
         ),
       ),

@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 
-showBottomSheetWidget(
-    {required Widget child,
-    required String title,
-    required String subtitle,
-    Widget? header,
-    required BuildContext navContext}) {
+showBottomSheetWidget({
+  required Widget child,
+  required BuildContext navContext,
+  String? title,
+  String? subtitle,
+  bool hideSheetHeader = false,
+}) {
   final context = navContext;
   showModalBottomSheet(
     context: context,
@@ -17,26 +18,25 @@ showBottomSheetWidget(
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
-          const HeaderBottomSheet(),
-          const SizedBox(
-            height: 16,
-          ),
-          if (header != null) header,
-          const SizedBox(
-            height: 16,
-          ),
-          Text(
-            title,
-            style: Theme.of(context).textTheme.headlineLarge,
-          ),
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 24),
-            child: Text(
-              subtitle,
-              textAlign: TextAlign.center,
-              style: Theme.of(context).textTheme.labelLarge,
+          if (hideSheetHeader) ...[
+            const HeaderBottomSheet(),
+            const SizedBox(height: 16),
+          ],
+          const SizedBox(height: 16),
+          if (title != null)
+            Text(
+              title,
+              style: Theme.of(context).textTheme.headlineLarge,
             ),
-          ),
+          if (subtitle != null)
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 24),
+              child: Text(
+                subtitle,
+                textAlign: TextAlign.center,
+                style: Theme.of(context).textTheme.labelLarge,
+              ),
+            ),
           const SizedBox(
             height: 16,
           ),

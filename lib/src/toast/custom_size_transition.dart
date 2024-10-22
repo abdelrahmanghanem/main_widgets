@@ -1,5 +1,6 @@
-import 'package:flutter/widgets.dart';
 import 'dart:math' as math;
+
+import 'package:flutter/widgets.dart';
 
 /// Animates its own size and clips and aligns its child.
 ///
@@ -35,13 +36,13 @@ class CustomSizeTransition extends AnimatedWidget {
   /// defaults to 0.0, which centers the child along the main axis during the
   /// transition.
   const CustomSizeTransition({
-    Key? key,
+    super.key,
     this.axis = Axis.vertical,
     this.alignment,
     required Animation<double> sizeFactor,
     this.axisAlignment = 0.0,
     this.child,
-  }) : super(key: key, listenable: sizeFactor);
+  }) : super(listenable: sizeFactor);
 
   /// [Axis.horizontal] if [sizeFactor] modifies the width, otherwise
   /// [Axis.vertical].
