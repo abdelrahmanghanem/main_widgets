@@ -20,6 +20,7 @@ The `SmartUIComponents` A Flutter package for efficient UI state management, han
   - [SmartLoadingWidget](#smartloadingwidget)
   - [SmartScreen](#smartscreen)
   - [SmartTagWidget](#smarttagwidget)
+  - [SmartStatusWidget](#smartstatuswidget)
 - [Functions Usage](#functions-usage)
   - [ShowToast](#showtoast)
   - [HexColor](#hexcolor)
@@ -77,37 +78,30 @@ Here is an example demonstrating how to use these parameters in the `MainScreen`
 
 ### SmartCachedImages
 
-<details>
-<summary>Example Code </summary>
-
 ```dart
   SmartCachedImages(
     imageUrl: 'https://example.com/image.jpg',
   ),
-```
-</details>  
+``` 
 
 
 ### SmartEmptyWidget
-
-<details>
-<summary>Example Code </summary>
 
 ```dart
   SmartEmptyWidget(
      message: 'The message of EmptyWidget',
   ),
 ```
-</details>
 
 ### SmartLoadingWidget
-
-<details>
-<summary>Example Code </summary>
 
 ```dart
     const SmartLoadingWidget()
 ```
+
+<details>
+<summary>Example Code </summary>
+
 ```dart
  SmartLoadingWidget(
     path: 'assets/animation.gif',
@@ -124,9 +118,6 @@ Here is an example demonstrating how to use these parameters in the `MainScreen`
 
 ### SmartTagWidget
 
-<details>
-<summary>Example Code </summary>
-
 ```dart
   SmartTagWidget(
     text: 'Tag Text',
@@ -134,7 +125,32 @@ Here is an example demonstrating how to use these parameters in the `MainScreen`
     textColor: Colors.white,
   )
 ```
-</details>
+### SmartStatusWidget
+
+```dart
+   const Card(
+        child: SmartStatusWidget(
+          text: '30%',
+          backgroundColor: Colors.red,
+          textColor: Colors.white,
+            child: SizedBox(
+            height: 200,
+            width: 120,
+              child: Column(
+                children: [
+                SmartCachedImages(
+                imageUrl: '',
+                height: 120,
+                ),
+                Text('title'),
+                Text('subtitle'),
+                ],
+              ),
+            ),
+        ),
+),
+```
+
 
 ## Functions Usage
 
@@ -263,9 +279,6 @@ Here is an example demonstrating how to use these parameters in the `Extensions`
 
 ### Extensions
 
-<details>
-<summary>Example Code </summary>
-
 ```dart
   Text(
    context.isArabic? 'isArabic':'isEnglish',
@@ -274,7 +287,7 @@ Here is an example demonstrating how to use these parameters in the `Extensions`
     ),
   ),
 ```
-</details>
+
 
 
 

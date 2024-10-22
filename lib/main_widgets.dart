@@ -22,4 +22,5 @@ export 'src/widgets/smart_empty_screen.dart';
 export 'src/widgets/smart_loading_widget.dart';
 export 'src/widgets/smart_refresh_indicator.dart';
 export 'src/widgets/smart_screen.dart';
+export 'src/widgets/smart_status_widget.dart';
 export 'src/widgets/smart_tag_widget.dart';

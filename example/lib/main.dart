@@ -41,6 +41,30 @@ class MyHomePage extends StatelessWidget {
       ),
       body: Column(
         children: [
+          const SizedBox(
+            height: 120,
+          ),
+          const Card(
+            child: SmartStatusWidget(
+              text: '30%',
+              backgroundColor: Colors.red,
+              textColor: Colors.white,
+              child: SizedBox(
+                height: 200,
+                width: 120,
+                child: Column(
+                  children: [
+                    SmartCachedImages(
+                      imageUrl: '',
+                      height: 120,
+                    ),
+                    Text('title'),
+                    Text('subtitle'),
+                  ],
+                ),
+              ),
+            ),
+          ),
           const SmartTagWidget(
             text: 'hello',
             textColor: Colors.white,
