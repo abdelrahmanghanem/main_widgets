@@ -1,3 +1,6 @@
+## 0.1.0
+* update version number
+
 ## 0.0.9
 * add toHexString
 
