@@ -57,9 +57,6 @@ Here is an example demonstrating how to use these parameters in the `MainScreen`
 
 ### SmartScreen
 
-<details>
-<summary>Example Code </summary>
-
 ```dart
     SmartScreen(
       isLoading: true, // Data is being loaded
@@ -74,7 +71,6 @@ Here is an example demonstrating how to use these parameters in the `MainScreen`
       message: "Please check back later.", // Optional message for empty state
     );
 ```
-</details>
 
 ### SmartCachedImages
 
@@ -138,12 +134,12 @@ Here is an example demonstrating how to use these parameters in the `MainScreen`
             width: 120,
               child: Column(
                 children: [
-                SmartCachedImages(
-                imageUrl: '',
-                height: 120,
-                ),
-                Text('title'),
-                Text('subtitle'),
+                  SmartCachedImages(
+                  imageUrl: '',
+                  height: 120,
+                  ),
+                  Text('title'),
+                  Text('subtitle'),
                 ],
               ),
             ),

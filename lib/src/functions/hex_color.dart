@@ -3,6 +3,11 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 
 class HexColor extends Color {
+  /// Convert a Color object to hex color string .
+  static String toHexString(Color value) =>
+      value.value.toRadixString(16).padLeft(8, '0');
+
+  /// Convert a hex color string to a Color object.
   static int _getColorFromHex(String hexColor) {
     hexColor = hexColor.toUpperCase().replaceAll("#", "");
     if (hexColor.length == 6) {

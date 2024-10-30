@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:main_button/main_button.dart';
 
 /// Enum that defines the type of empty state to display.
 enum EmptyType {
@@ -15,19 +16,14 @@ enum EmptyType {
 
 class SmartEmptyWidget extends StatelessWidget {
   /// The message to display in the empty state. Defaults to 'no_data_found' if not provided.
+  final String? title;
   final String? message;
 
   /// The file path to the image (SVG) to be displayed when using [EmptyType.image].
-  final String? path;
+  final String? emptyImage;
 
   /// A custom widget to display when using [EmptyType.custom].
   final Widget? child;
-
-  /// The text to display on the action button, if applicable.
-  final String? buttonText;
-
-  /// A callback function that is triggered when the action button is pressed.
-  final void Function()? onTap;
 
   /// The padding around the content of the empty state.
   final EdgeInsetsGeometry padding;
@@ -36,18 +32,22 @@ class SmartEmptyWidget extends StatelessWidget {
   final EmptyType type;
 
   /// The text style to apply to the message.
-  final TextStyle? style;
+  final TextStyle? messageStyle;
+  final TextStyle? titleStyle;
+
+  final ButtonModel? buttonModel;
 
   const SmartEmptyWidget({
     super.key,
     this.message,
+    this.title,
     this.child,
-    this.buttonText,
-    this.onTap,
     this.padding = const EdgeInsets.all(12),
-    this.path,
+    this.emptyImage,
     this.type = EmptyType.text,
-    this.style,
+    this.messageStyle,
+    this.titleStyle,
+    this.buttonModel,
   });
 
   @override
@@ -62,12 +62,40 @@ class SmartEmptyWidget extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.center,
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                SvgPicture.asset(path!),
+                SvgPicture.asset(emptyImage!),
                 const SizedBox(height: 32),
-                Text(
-                  message ?? 'no_data_found',
-                  style: style ?? Theme.of(context).textTheme.bodyMedium,
-                ),
+                if (title != null)
+                  Text(
+                    title ?? 'no_data_found',
+                    textAlign: TextAlign.center,
+                    style: titleStyle ?? Theme.of(context).textTheme.labelLarge,
+                  ),
+                if (message != null) ...[
+                  const SizedBox(height: 12),
+                  Text(
+                    message ?? 'no_data_found',
+                    style:
+                        messageStyle ?? Theme.of(context).textTheme.bodySmall,
+                  ),
+                ],
+                if (buttonModel != null) ...[
+                  const SizedBox(height: 24),
+                  if (buttonModel != null)
+                    MainButton.icon(
+                      onPressed: buttonModel!.onPressed,
+                      label: buttonModel!.label,
+                      iconType: buttonModel!.iconType,
+                      width: buttonModel!.width,
+                      isLoading: buttonModel?.isLoading ?? false,
+                      isDisable: buttonModel?.isDisabled ?? false,
+                      backgroundColor: buttonModel?.backgroundColor ??
+                          Theme.of(context).primaryColor,
+                      textColor: buttonModel!.textColor,
+                      icon: buttonModel!.icon,
+                      imagePath: buttonModel!.imagePath,
+                      borderRadius: buttonModel!.borderRadius,
+                    ),
+                ],
               ],
             ),
           ),
@@ -77,7 +105,7 @@ class SmartEmptyWidget extends StatelessWidget {
         return Center(
           child: Text(
             message ?? 'no_data_found',
-            style: style ?? Theme.of(context).textTheme.bodyMedium,
+            style: messageStyle ?? Theme.of(context).textTheme.bodyMedium,
           ),
         );
       case EmptyType.custom:
@@ -97,9 +125,37 @@ class SmartEmptyWidget extends StatelessWidget {
         return Center(
           child: Text(
             message ?? 'no_data_found',
-            style: style ?? Theme.of(context).textTheme.bodyMedium,
+            style: messageStyle ?? Theme.of(context).textTheme.bodyMedium,
           ),
         );
     }
   }
+}
+
+class ButtonModel {
+  final String label;
+  final double width;
+  final void Function() onPressed;
+  final IconType iconType;
+  final bool? isDisabled;
+  final bool? isLoading;
+  final Color? backgroundColor;
+  final Color? textColor;
+  final IconData? icon;
+  final String? imagePath;
+  final double borderRadius;
+
+  const ButtonModel({
+    required this.label,
+    required this.onPressed,
+    this.width = double.infinity,
+    this.iconType = IconType.icon,
+    this.isDisabled = false,
+    this.isLoading = false,
+    this.backgroundColor,
+    this.textColor,
+    this.icon,
+    this.imagePath,
+    this.borderRadius = 12,
+  });
 }
