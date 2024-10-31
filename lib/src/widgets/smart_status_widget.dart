@@ -66,16 +66,7 @@ class StatusWidget extends StatelessWidget {
       padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
       decoration: BoxDecoration(
         color: backgroundColor,
-        borderRadius: borderRadius ??
-            (context.isArabic
-                ? BorderRadius.only(
-                    topLeft: Radius.circular(radius),
-                    bottomRight: Radius.circular(radius),
-                  )
-                : BorderRadius.only(
-                    topRight: Radius.circular(radius),
-                    bottomLeft: Radius.circular(radius),
-                  )),
+        borderRadius: borderRadius ?? BorderRadius.all(Radius.circular(radius)),
       ),
       child: Center(
         child: Text(

@@ -1,3 +1,5 @@
+## 0.1.1
+* delete extension locale
 ## 0.1.0
 * update version number
 

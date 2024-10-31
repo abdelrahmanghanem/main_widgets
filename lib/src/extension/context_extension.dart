@@ -22,11 +22,6 @@ extension IsDarkTheme on BuildContext {
   bool get isDark => Theme.of(this).brightness == Brightness.dark;
 }
 
-extension LanguageExtention on BuildContext {
-  bool get isArabic => Localizations.localeOf(this).languageCode == 'ar';
-  bool get isEnglish => Localizations.localeOf(this).languageCode == 'en';
-}
-
 extension Pop on BuildContext {
   void popScreen() => Navigator.maybePop(this);
 }
