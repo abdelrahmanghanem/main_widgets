@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:main_button/main_button.dart';
+import 'package:smart_localize/smart_localize.dart';
 
 /// Enum that defines the type of empty state to display.
 enum EmptyType {
@@ -66,7 +67,7 @@ class SmartEmptyWidget extends StatelessWidget {
                 const SizedBox(height: 32),
                 if (title != null)
                   Text(
-                    title ?? 'no_data_found',
+                    title ?? SmartLocalize.noDataFound,
                     textAlign: TextAlign.center,
                     style: titleStyle ?? Theme.of(context).textTheme.labelLarge,
                   ),

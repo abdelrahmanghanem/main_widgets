@@ -1,6 +1,6 @@
 name: main_widgets
 description: "A Flutter package for efficient UI state management, handling loading, empty views, content display, caching, and pull-to-refresh with customizable widgets."
-version: 0.1.1
+version: 0.1.2
 homepage: https://github.com/abdelrahmanghanem
 repository: https://github.com/abdelrahmanghanem/main_widgets
 
@@ -16,6 +16,7 @@ dependencies:
   flutter_svg: ^2.0.10+1
   cached_network_image: ^3.4.1
   main_button: ^0.0.2
+  smart_localize:  ^0.0.12
   flutter_localizations:
     sdk: flutter
 
