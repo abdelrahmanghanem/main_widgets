@@ -1,3 +1,7 @@
+## 0.1.3
+
+* handle no_data_found
+
 ## 0.1.2
 
 * add smart localize

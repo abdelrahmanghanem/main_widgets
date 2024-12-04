@@ -74,7 +74,7 @@ class SmartEmptyWidget extends StatelessWidget {
                 if (message != null) ...[
                   const SizedBox(height: 12),
                   Text(
-                    message ?? 'no_data_found',
+                    message ?? SmartLocalize.noDataFound,
                     style:
                         messageStyle ?? Theme.of(context).textTheme.bodySmall,
                   ),
@@ -105,7 +105,7 @@ class SmartEmptyWidget extends StatelessWidget {
         // Displays only a text message when using the EmptyType.text.
         return Center(
           child: Text(
-            message ?? 'no_data_found',
+            message ?? SmartLocalize.noDataFound,
             style: messageStyle ?? Theme.of(context).textTheme.bodyMedium,
           ),
         );
@@ -125,7 +125,7 @@ class SmartEmptyWidget extends StatelessWidget {
         // Fallback to displaying a text message if no specific type matches.
         return Center(
           child: Text(
-            message ?? 'no_data_found',
+            message ?? SmartLocalize.noDataFound,
             style: messageStyle ?? Theme.of(context).textTheme.bodyMedium,
           ),
         );
