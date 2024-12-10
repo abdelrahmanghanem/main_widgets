@@ -44,6 +44,12 @@ class MyHomePage extends StatelessWidget {
           const SizedBox(
             height: 120,
           ),
+          SmartUserImageWidget(displayName: 'ssssss ssss', photo: '', size: 60),
+          SmartWelcomeWidget(
+            userImage: '',
+            userName: 'ssssss ssss',
+            onTap: () {},
+          ),
           const Card(
             child: SmartStatusWidget(
               text: '30%',

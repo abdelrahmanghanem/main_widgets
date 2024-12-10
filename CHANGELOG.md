@@ -1,3 +1,7 @@
+## 0.1.4
+
+* add smart user image widget
+* add smart welcome widget
 ## 0.1.3
 
 * handle no_data_found

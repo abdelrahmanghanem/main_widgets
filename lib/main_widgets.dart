@@ -4,6 +4,8 @@ export 'package:lottie/lottie.dart';
 
 // functions
 export 'src/extension/context_extension.dart';
+export 'src/functions/date_function/date_format.dart';
+export 'src/functions/date_function/get_date.dart';
 // functions
 export 'src/functions/debouncer.dart';
 export 'src/functions/hex_color.dart';
@@ -24,3 +26,5 @@ export 'src/widgets/smart_refresh_indicator.dart';
 export 'src/widgets/smart_screen.dart';
 export 'src/widgets/smart_status_widget.dart';
 export 'src/widgets/smart_tag_widget.dart';
+export 'src/widgets/smart_user_image_widget.dart';
+export 'src/widgets/smart_welcome_widget.dart';
