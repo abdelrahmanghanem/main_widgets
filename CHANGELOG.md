@@ -1,3 +1,7 @@
+## 0.1.5
+
+* add responsive widget
+
 ## 0.1.4
 
 * add smart user image widget

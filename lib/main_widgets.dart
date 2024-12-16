@@ -11,6 +11,7 @@ export 'src/functions/debouncer.dart';
 export 'src/functions/hex_color.dart';
 export 'src/functions/separated_widget.dart';
 export 'src/functions/show_toast_function.dart';
+export 'src/screen_util/screen_util.dart';
 // toast
 export 'src/toast/custom_animation.dart';
 export 'src/toast/custom_size_transition.dart';
@@ -18,6 +19,7 @@ export 'src/toast/styled_toast.dart';
 export 'src/toast/styled_toast_enum.dart';
 export 'src/toast/styled_toast_manage.dart';
 export 'src/toast/styled_toast_theme.dart';
+export 'src/widgets/responsive_widget.dart';
 // widgets
 export 'src/widgets/smart_cached_images.dart';
 export 'src/widgets/smart_empty_screen.dart';
@@ -26,5 +28,5 @@ export 'src/widgets/smart_refresh_indicator.dart';
 export 'src/widgets/smart_screen.dart';
 export 'src/widgets/smart_status_widget.dart';
 export 'src/widgets/smart_tag_widget.dart';
-export 'src/widgets/smart_user_image_widget.dart';
+export 'src/widgets/smart_user_image.dart';
 export 'src/widgets/smart_welcome_widget.dart';

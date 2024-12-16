@@ -49,8 +49,10 @@
 ///
 /// yearMonth  =>  2023-11
 ///
-/// romanDate  =>  III (for November)///
-/// dayOfYear  =>  307 (Day of year)///
+/// romanDate  =>  III (for November)
+///
+/// dayOfYear  =>  307 (Day of year)
+///
 /// weekStart  =>  Monday, 1 January 2023
 ///
 /// timeZone   =>  11:00 AM GMT+3

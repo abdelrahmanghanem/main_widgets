@@ -10,7 +10,7 @@ class SmartScreen extends StatelessWidget {
   final bool isEmpty;
 
   /// The main content to display when data is available.
-  final Widget child;
+  final Widget Function(BuildContext context) builder;
 
   /// Callback function that is triggered when the user performs a pull-to-refresh action.
   final Future<void> Function()? onRefresh;
@@ -20,15 +20,19 @@ class SmartScreen extends StatelessWidget {
 
   /// An optional message to display in the empty state widget.
   final String? message;
+  final Color? refreshColor;
+  final Color? refreshBackgroundColor;
 
   const SmartScreen({
     super.key,
-    required this.child,
+    required this.builder,
     this.isLoading = false,
     this.isEmpty = false,
     this.message,
     this.emptyWidget,
     this.onRefresh,
+    this.refreshColor,
+    this.refreshBackgroundColor,
   });
 
   @override
@@ -36,11 +40,13 @@ class SmartScreen extends StatelessWidget {
     return getWidget(
       isLoading: isLoading,
       isEmpty: isEmpty,
-      child: child,
+      builder: builder,
       message: message,
       emptyWidget: emptyWidget,
       onRefresh: onRefresh,
       context: context,
+      refreshColor: refreshColor,
+      refreshBackgroundColor: Theme.of(context).primaryColor,
     );
   }
 }
@@ -55,9 +61,11 @@ Widget getWidget({
   required BuildContext context,
   required bool isLoading,
   required bool isEmpty,
-  required Widget child,
+  required Widget Function(BuildContext context) builder,
   Widget? emptyWidget,
   String? message,
+  Color? refreshColor,
+  Color? refreshBackgroundColor,
   required Future<void> Function()? onRefresh,
 }) {
   if (isLoading) {
@@ -70,9 +78,9 @@ Widget getWidget({
     // Displays the main content wrapped with a pull-to-refresh functionality.
     return RefreshIndicator(
       onRefresh: onRefresh ?? () async {},
-      color: Colors.white,
-      backgroundColor: Theme.of(context).primaryColor,
-      child: child,
+      color: refreshColor ?? Colors.white,
+      backgroundColor: refreshBackgroundColor ?? Theme.of(context).primaryColor,
+      child: builder(context),
     );
   }
 }

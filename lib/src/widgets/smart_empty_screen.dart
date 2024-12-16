@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:main_button/main_button.dart';
+import 'package:main_widgets/src/screen_util/size_extension.dart';
 import 'package:smart_localize/smart_localize.dart';
 
 /// Enum that defines the type of empty state to display.
@@ -27,7 +28,7 @@ class SmartEmptyWidget extends StatelessWidget {
   final Widget? child;
 
   /// The padding around the content of the empty state.
-  final EdgeInsetsGeometry padding;
+  final EdgeInsetsGeometry? padding;
 
   /// Specifies the type of empty state to display.
   final EmptyType type;
@@ -43,7 +44,7 @@ class SmartEmptyWidget extends StatelessWidget {
     this.message,
     this.title,
     this.child,
-    this.padding = const EdgeInsets.all(12),
+    this.padding,
     this.emptyImage,
     this.type = EmptyType.text,
     this.messageStyle,
@@ -57,14 +58,14 @@ class SmartEmptyWidget extends StatelessWidget {
       case EmptyType.image:
         // Displays an image (SVG) with a message when using the EmptyType.image.
         return Padding(
-          padding: padding,
+          padding: padding ?? const EdgeInsets.all(12).r,
           child: Center(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 SvgPicture.asset(emptyImage!),
-                const SizedBox(height: 32),
+                SizedBox(height: 32.h),
                 if (title != null)
                   Text(
                     title ?? SmartLocalize.noDataFound,
@@ -72,7 +73,7 @@ class SmartEmptyWidget extends StatelessWidget {
                     style: titleStyle ?? Theme.of(context).textTheme.labelLarge,
                   ),
                 if (message != null) ...[
-                  const SizedBox(height: 12),
+                  SizedBox(height: 12.h),
                   Text(
                     message ?? SmartLocalize.noDataFound,
                     style:
@@ -80,13 +81,13 @@ class SmartEmptyWidget extends StatelessWidget {
                   ),
                 ],
                 if (buttonModel != null) ...[
-                  const SizedBox(height: 24),
+                  SizedBox(height: 24.h),
                   if (buttonModel != null)
                     MainButton.icon(
                       onPressed: buttonModel!.onPressed,
                       label: buttonModel!.label,
-                      iconType: buttonModel!.iconType,
-                      width: buttonModel!.width,
+                      iconType: buttonModel!.iconType ?? IconType.icon,
+                      width: buttonModel!.width ?? double.infinity,
                       isLoading: buttonModel?.isLoading ?? false,
                       isDisable: buttonModel?.isDisabled ?? false,
                       backgroundColor: buttonModel?.backgroundColor ??
@@ -94,7 +95,7 @@ class SmartEmptyWidget extends StatelessWidget {
                       textColor: buttonModel!.textColor,
                       icon: buttonModel!.icon,
                       imagePath: buttonModel!.imagePath,
-                      borderRadius: buttonModel!.borderRadius,
+                      borderRadius: buttonModel!.borderRadius ?? 12.r,
                     ),
                 ],
               ],
@@ -112,7 +113,7 @@ class SmartEmptyWidget extends StatelessWidget {
       case EmptyType.custom:
         // Displays a custom widget provided by the user when using the EmptyType.custom.
         return Padding(
-          padding: padding,
+          padding: padding ?? const EdgeInsets.all(12).r,
           child: Center(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
@@ -121,42 +122,34 @@ class SmartEmptyWidget extends StatelessWidget {
             ),
           ),
         );
-      default:
-        // Fallback to displaying a text message if no specific type matches.
-        return Center(
-          child: Text(
-            message ?? SmartLocalize.noDataFound,
-            style: messageStyle ?? Theme.of(context).textTheme.bodyMedium,
-          ),
-        );
     }
   }
 }
 
 class ButtonModel {
   final String label;
-  final double width;
+  final double? width;
   final void Function() onPressed;
-  final IconType iconType;
+  final IconType? iconType;
   final bool? isDisabled;
   final bool? isLoading;
   final Color? backgroundColor;
   final Color? textColor;
   final IconData? icon;
   final String? imagePath;
-  final double borderRadius;
+  final double? borderRadius;
 
   const ButtonModel({
     required this.label,
     required this.onPressed,
-    this.width = double.infinity,
-    this.iconType = IconType.icon,
-    this.isDisabled = false,
-    this.isLoading = false,
+    this.width,
+    this.iconType,
+    this.isDisabled,
+    this.isLoading,
     this.backgroundColor,
     this.textColor,
     this.icon,
     this.imagePath,
-    this.borderRadius = 12,
+    this.borderRadius,
   });
 }

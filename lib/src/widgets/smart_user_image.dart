@@ -1,23 +1,24 @@
 import 'package:flutter/material.dart';
 import 'package:main_widgets/main_widgets.dart';
 import 'package:main_widgets/src/extension/initials_extension.dart';
+import 'package:main_widgets/src/screen_util/size_extension.dart';
 
-class SmartUserImageWidget extends StatelessWidget {
+class SmartUserImage extends StatelessWidget {
   final String? photo;
   final String displayName;
   final TextStyle? style;
   final Color? backgroundColor;
   final Color? borderColor;
-  final double? size;
+  final double? imageSize;
 
-  const SmartUserImageWidget({
+  const SmartUserImage({
     super.key,
     this.photo,
     required this.displayName,
     this.style,
     this.backgroundColor,
     this.borderColor,
-    this.size,
+    this.imageSize,
   });
 
   @override
@@ -26,17 +27,17 @@ class SmartUserImageWidget extends StatelessWidget {
         ? DefaultProfileImage(
             displayName: displayName,
             backgroundColor: backgroundColor,
-            size: size,
+            size: imageSize,
             borderColor: borderColor,
             style: style,
           )
         : CircleImageWidget(
             photo: photo,
-            size: size,
+            size: imageSize,
             errorWidget: DefaultProfileImage(
               displayName: displayName,
               backgroundColor: backgroundColor,
-              size: size,
+              size: imageSize,
               borderColor: borderColor,
               style: style,
             ),
@@ -63,8 +64,8 @@ class DefaultProfileImage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: size ?? 42,
-      height: size ?? 42,
+      width: size ?? 42.w,
+      height: size ?? 42.w,
       padding: const EdgeInsets.all(8),
       decoration: BoxDecoration(
         shape: BoxShape.circle,

@@ -1,56 +1,72 @@
 import 'package:flutter/material.dart';
+import 'package:main_widgets/src/screen_util/size_extension.dart';
+import 'package:smart_localize/smart_localize.dart';
 
 import '../../main_widgets.dart';
-import '../functions/greeting_function.dart';
 
 class SmartWelcomeWidget extends StatelessWidget {
-  final Widget? trailing;
   final String userName;
   final String userImage;
+  final double? imageSize;
+  final Widget? trailing;
+  final BorderRadius? borderRadius;
   final VoidCallback? onTap;
+  final DateFormats? dateFormat;
+  final TextStyle? dateStyle;
+  final TextStyle? userNameStyle;
+  final TextStyle? greetingStyle;
   const SmartWelcomeWidget({
     super.key,
-    this.trailing,
     required this.userName,
     required this.userImage,
+    this.trailing,
     this.onTap,
+    this.imageSize,
+    this.borderRadius,
+    this.dateFormat,
+    this.dateStyle,
+    this.userNameStyle,
+    this.greetingStyle,
   });
   @override
   Widget build(BuildContext context) {
     return Row(
       children: [
         InkWell(
-          borderRadius: const BorderRadius.all(Radius.circular(50)),
+          borderRadius:
+              borderRadius ?? const BorderRadius.all(Radius.circular(50)).r,
           onTap: onTap,
-          child: SmartUserImageWidget(
-            size: 40,
+          child: SmartUserImage(
+            imageSize: imageSize ?? 40.r,
             displayName: userName,
             photo: userImage,
           ),
         ),
-        const SizedBox(width: 12),
+        SizedBox(width: 12.w),
         Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
               getDate(
                 date: DateTime.now().toString(),
-                format: DateFormats.weekdayMonthDay,
+                format: dateFormat ?? DateFormats.weekdayMonthDay,
               ),
-              style: context.bodyMedium,
+              style: dateStyle ?? context.bodyMedium,
             ),
             Row(
               children: [
                 Text(
-                  greeting,
-                  style: context.labelSmall?.copyWith(fontSize: 12),
+                  _greeting,
+                  style: greetingStyle ??
+                      context.labelSmall?.copyWith(fontSize: 12),
                 ),
                 Text(
                   ' $userName ',
-                  style: context.labelSmall?.copyWith(
-                    fontWeight: FontWeight.bold,
-                    fontSize: 12,
-                  ),
+                  style: userNameStyle ??
+                      context.labelSmall?.copyWith(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 12,
+                      ),
                 ),
               ],
             ),
@@ -61,4 +77,15 @@ class SmartWelcomeWidget extends StatelessWidget {
       ],
     );
   }
+}
+
+String get _greeting {
+  final hour = DateTime.now().hour;
+  if (hour < 12) {
+    return SmartLocalize.goodMorning;
+  }
+  if (hour < 17) {
+    return SmartLocalize.goodAfternoon;
+  }
+  return SmartLocalize.goodEvening;
 }
