@@ -3,7 +3,6 @@ import 'package:main_widgets/src/screen_util/size_extension.dart';
 
 class SmartTagWidget extends StatelessWidget {
   final String? text;
-
   final Widget? child;
   final TextStyle? style;
   final Color? backgroundColor;

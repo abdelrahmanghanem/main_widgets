@@ -2,6 +2,7 @@ library main_widgets;
 
 export 'package:lottie/lottie.dart';
 
+export 'src/extension/app_font.dart';
 // functions
 export 'src/extension/context_extension.dart';
 export 'src/functions/date_function/date_format.dart';
