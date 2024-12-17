@@ -22,7 +22,7 @@ class MainWidgetsUtil {
   ///屏幕方向
   late Orientation _orientation;
 
-  bool _minTextAdapt = false;
+  late bool _minTextAdapt;
   late MediaQueryData _data;
   late bool _splitScreenMode;
   FontSizeResolver? fontSizeResolver;
