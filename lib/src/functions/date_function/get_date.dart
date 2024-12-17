@@ -4,7 +4,7 @@ import 'package:intl/intl.dart';
 
 import 'date_format.dart';
 
-String getDate({
+String getFormatedDate({
   required String? date,
   DateFormats? format,
   bool toApi = true,
@@ -71,16 +71,6 @@ int getDurationDays({required String date, String? secondDate}) {
     return 1;
   }
 }
-//
-// String getHourString(String time) {
-//   final isHour = time.contains('.');
-//   final hours = double.parse(time);
-//   return hours < 1 || !isHour
-//       ? '$time ${'minutes_'.tr()}'
-//       : hours > 1
-//           ? '$time ${'hours_'.tr()}'
-//           : '$time ${'hour_'.tr()}';
-// }
 
 String getDateTime({
   required String date,

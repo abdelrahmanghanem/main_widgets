@@ -47,7 +47,7 @@ class SmartWelcomeWidget extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              getDate(
+              getFormatedDate(
                 date: DateTime.now().toString(),
                 format: dateFormat ?? DateFormats.weekdayMonthDay,
               ),

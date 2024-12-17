@@ -1,6 +1,18 @@
-## 0.1.7+1
+## 0.2.0
 
-* edit main widget util
+### Tuesday,  17th Dec, 2024
+
+* feat: __New function__
+  * add getFormatedDate function
+  * add getTime function
+  
+* feat: __New Widgets__
+  * smart welcome widget
+  * smart user image
+
+* __Breaking Change:__
+  * remove `child` parameter from `SmartScreen`. use `builder` instead
+
 * ## 0.1.7
 
 * edit main widget util
