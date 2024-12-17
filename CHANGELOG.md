@@ -1,4 +1,7 @@
-## 0.1.7
+## 0.1.7+1
+
+* edit main widget util
+* ## 0.1.7
 
 * edit main widget util
 
