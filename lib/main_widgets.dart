@@ -12,7 +12,7 @@ export 'src/functions/debouncer.dart';
 export 'src/functions/hex_color.dart';
 export 'src/functions/separated_widget.dart';
 export 'src/functions/show_toast_function.dart';
-export 'src/screen_util/screen_util.dart';
+export 'src/screen_util/main_widgets_util.dart';
 // toast
 export 'src/toast/custom_animation.dart';
 export 'src/toast/custom_size_transition.dart';

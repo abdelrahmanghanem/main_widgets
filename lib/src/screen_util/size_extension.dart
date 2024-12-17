@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'screen_util.dart';
+import 'main_widgets_util.dart';
 
 extension SizeExtension on num {
   ///[MainWidgetsUtil.setWidth]

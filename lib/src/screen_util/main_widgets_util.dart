@@ -10,7 +10,7 @@ typedef FontSizeResolver = double Function(
 class MainWidgetsUtil {
   static BuildContext? _context;
   static const Size defaultSize = Size(360, 690);
-  static MainWidgetsUtil _instance = MainWidgetsUtil._();
+  static final MainWidgetsUtil _instance = MainWidgetsUtil._();
 
   static bool Function() _enableScaleWH = () => true;
   static bool Function() _enableScaleText = () => true;
@@ -22,7 +22,7 @@ class MainWidgetsUtil {
   ///屏幕方向
   late Orientation _orientation;
 
-  late bool _minTextAdapt;
+  bool _minTextAdapt = false;
   late MediaQueryData _data;
   late bool _splitScreenMode;
   FontSizeResolver? fontSizeResolver;
@@ -154,7 +154,7 @@ class MainWidgetsUtil {
   }) {
     final view = View.maybeOf(context);
     _context = context;
-    return configure(
+    configure(
       data: view != null ? MediaQueryData.fromView(view) : null,
       designSize: designSize,
       splitScreenMode: splitScreenMode,

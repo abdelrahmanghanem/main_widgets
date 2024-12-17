@@ -1,3 +1,7 @@
+## 0.1.7
+
+* edit main widget util
+
 ## 0.1.6
 
 * add responsive widget
