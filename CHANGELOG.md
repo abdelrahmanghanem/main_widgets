@@ -1,19 +1,23 @@
+## 0.2.1
+
+* fix: handle import in the package
+
 ## 0.2.0
 
-### Tuesday,  17th Dec, 2024
+### Tuesday, 17th Dec, 2024
 
 * feat: __New function__
-  * add getFormatedDate function
-  * add getTime function
-  
+    * add getFormatedDate function
+    * add getTime function
+
 * feat: __New Widgets__
-  * smart welcome widget
-  * smart user image
+    * smart welcome widget
+    * smart user image
 
 * __Breaking Change:__
-  * remove `child` parameter from `SmartScreen`. use `builder` instead
+    * remove `child` parameter from `SmartScreen`. use `builder` instead
 
-* ## 0.1.7
+## 0.1.7
 
 * edit main widget util
 
@@ -29,6 +33,7 @@
 
 * add smart user image widget
 * add smart welcome widget
+
 ## 0.1.3
 
 * handle no_data_found
