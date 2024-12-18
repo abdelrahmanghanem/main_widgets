@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
-import 'package:main_widgets/src/screen_util/size_extension.dart';
+import 'package:main_widgets/src/screen_util/main_widgets_size_extension.dart';
 
 /// Enum that defines the type of loading indicator to display.
 enum LoadingType {
@@ -33,8 +33,8 @@ class SmartLoadingWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final width = 140.w;
-    final height = 140.h;
+    final width = 140.ww;
+    final height = 140.hh;
     switch (loadingType) {
       case LoadingType.defaultType:
         // Displays the default circular progress indicator.

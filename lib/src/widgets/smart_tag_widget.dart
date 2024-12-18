@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:main_widgets/src/screen_util/size_extension.dart';
+import 'package:main_widgets/src/screen_util/main_widgets_size_extension.dart';
 
 class SmartTagWidget extends StatelessWidget {
   final String? text;
@@ -20,10 +20,10 @@ class SmartTagWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Ink(
-      padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4).r,
+      padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4).rr,
       decoration: BoxDecoration(
         color: backgroundColor ?? Theme.of(context).scaffoldBackgroundColor,
-        borderRadius: const BorderRadius.all(Radius.circular(30)).r,
+        borderRadius: const BorderRadius.all(Radius.circular(30)).rr,
       ),
       child: child ??
           Text(

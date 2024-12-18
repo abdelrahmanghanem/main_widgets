@@ -1,6 +1,5 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:main_widgets/src/screen_util/size_extension.dart';
 
 import '../../main_widgets.dart';
 
@@ -80,7 +79,7 @@ class SmartCachedImages extends StatelessWidget {
       borderRadius: borderRadius ??
           BorderRadius.all(
             Radius.circular(radius),
-          ).r,
+          ).rr,
       child: ColorFiltered(
         colorFilter: ColorFilter.mode(filterColor, BlendMode.darken),
         child: CachedNetworkImage(

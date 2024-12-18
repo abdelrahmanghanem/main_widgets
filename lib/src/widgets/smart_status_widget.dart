@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:main_widgets/main_widgets.dart';
-import 'package:main_widgets/src/screen_util/size_extension.dart';
 
 class SmartStatusWidget extends StatelessWidget {
   final double height;
@@ -28,7 +27,7 @@ class SmartStatusWidget extends StatelessWidget {
         child,
         PositionedDirectional(
           end: 0,
-          height: height.r,
+          height: height.rr,
           child: StatusWidget(
             height: height,
             borderRadius: borderRadius,
@@ -63,12 +62,12 @@ class StatusWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: height.r,
-      padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4).r,
+      height: height.rr,
+      padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4).rr,
       decoration: BoxDecoration(
         color: backgroundColor,
         borderRadius:
-            borderRadius ?? BorderRadius.all(Radius.circular(radius)).r,
+            borderRadius ?? BorderRadius.all(Radius.circular(radius)).rr,
       ),
       child: Center(
         child: Text(

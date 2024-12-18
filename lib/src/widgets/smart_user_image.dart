@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:main_widgets/main_widgets.dart';
 import 'package:main_widgets/src/extension/initials_extension.dart';
-import 'package:main_widgets/src/screen_util/size_extension.dart';
 
 class SmartUserImage extends StatelessWidget {
   final String? photo;
@@ -64,8 +63,8 @@ class DefaultProfileImage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: size ?? 42.w,
-      height: size ?? 42.w,
+      width: size ?? 42.ww,
+      height: size ?? 42.ww,
       padding: const EdgeInsets.all(8),
       decoration: BoxDecoration(
         shape: BoxShape.circle,

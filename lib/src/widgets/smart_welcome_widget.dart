@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:main_widgets/src/screen_util/size_extension.dart';
 import 'package:smart_localize/smart_localize.dart';
 
 import '../../main_widgets.dart';
@@ -34,15 +33,15 @@ class SmartWelcomeWidget extends StatelessWidget {
       children: [
         InkWell(
           borderRadius:
-              borderRadius ?? const BorderRadius.all(Radius.circular(50)).r,
+              borderRadius ?? const BorderRadius.all(Radius.circular(50)).rr,
           onTap: onTap,
           child: SmartUserImage(
-            imageSize: imageSize ?? 40.r,
+            imageSize: imageSize ?? 40.rr,
             displayName: userName,
             photo: userImage,
           ),
         ),
-        SizedBox(width: 12.w),
+        SizedBox(width: 12.ww),
         Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:main_button/main_button.dart';
-import 'package:main_widgets/src/screen_util/size_extension.dart';
+import 'package:main_widgets/src/screen_util/main_widgets_size_extension.dart';
 import 'package:smart_localize/smart_localize.dart';
 
 /// Enum that defines the type of empty state to display.
@@ -58,14 +58,14 @@ class SmartEmptyWidget extends StatelessWidget {
       case EmptyType.image:
         // Displays an image (SVG) with a message when using the EmptyType.image.
         return Padding(
-          padding: padding ?? const EdgeInsets.all(12).r,
+          padding: padding ?? const EdgeInsets.all(12).rr,
           child: Center(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 SvgPicture.asset(emptyImage!),
-                SizedBox(height: 32.h),
+                SizedBox(height: 32.hh),
                 if (title != null)
                   Text(
                     title ?? SmartLocalize.noDataFound,
@@ -73,7 +73,7 @@ class SmartEmptyWidget extends StatelessWidget {
                     style: titleStyle ?? Theme.of(context).textTheme.labelLarge,
                   ),
                 if (message != null) ...[
-                  SizedBox(height: 12.h),
+                  SizedBox(height: 12.hh),
                   Text(
                     message ?? SmartLocalize.noDataFound,
                     style:
@@ -81,7 +81,7 @@ class SmartEmptyWidget extends StatelessWidget {
                   ),
                 ],
                 if (buttonModel != null) ...[
-                  SizedBox(height: 24.h),
+                  SizedBox(height: 24.hh),
                   if (buttonModel != null)
                     MainButton.icon(
                       onPressed: buttonModel!.onPressed,
@@ -95,7 +95,7 @@ class SmartEmptyWidget extends StatelessWidget {
                       textColor: buttonModel!.textColor,
                       icon: buttonModel!.icon,
                       imagePath: buttonModel!.imagePath,
-                      borderRadius: buttonModel!.borderRadius ?? 12.r,
+                      borderRadius: buttonModel!.borderRadius ?? 12.rr,
                     ),
                 ],
               ],
@@ -113,7 +113,7 @@ class SmartEmptyWidget extends StatelessWidget {
       case EmptyType.custom:
         // Displays a custom widget provided by the user when using the EmptyType.custom.
         return Padding(
-          padding: padding ?? const EdgeInsets.all(12).r,
+          padding: padding ?? const EdgeInsets.all(12).rr,
           child: Center(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,

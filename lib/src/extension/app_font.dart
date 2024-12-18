@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:main_widgets/src/screen_util/size_extension.dart';
+import 'package:main_widgets/src/screen_util/main_widgets_size_extension.dart';
 
 import '../widgets/responsive_widget.dart';
 
@@ -15,40 +15,40 @@ class FontWeightManager {
 class FontSize {
   FontSize._();
 
-  static double get s1 => 1.sp;
-  static double get s2 => 2.sp;
-  static double get s3 => 3.sp;
-  static double get s4 => 4.sp;
-  static double get s5 => 5.sp;
-  static double get s6 => 6.sp;
-  static double get s7 => 7.sp;
-  static double get s8 => 8.0.sp;
-  static double get s9 => 9.0.sp;
-  static double get s10 => 10.0.sp;
-  static double get s11 => 11.0.sp;
-  static double get s12 => 12.0.sp;
-  static double get s13 => 13.0.sp;
-  static double get s14 => 14.0.sp;
-  static double get s15 => 15.0.sp;
-  static double get s16 => 16.0.sp;
-  static double get s17 => 17.0.sp;
-  static double get s18 => 18.0.sp;
-  static double get s19 => 19.0.sp;
-  static double get s20 => 20.0.sp;
-  static double get s21 => 21.0.sp;
-  static double get s22 => 22.0.sp;
-  static double get s23 => 23.0.sp;
-  static double get s24 => 24.0.sp;
-  static double get s25 => 25.0.sp;
-  static double get s26 => 26.0.sp;
-  static double get s28 => 28.0.sp;
-  static double get s32 => 32.0.sp;
-  static double get s36 => 36.0.sp;
-  static double get s40 => 40.0.sp;
-  static double get s44 => 44.0.sp;
-  static double get s48 => 48.0.sp;
-  static double get s52 => 52.0.sp;
-  static double get s56 => 56.0.sp;
+  static double get s1 => 1.spp;
+  static double get s2 => 2.spp;
+  static double get s3 => 3.spp;
+  static double get s4 => 4.spp;
+  static double get s5 => 5.spp;
+  static double get s6 => 6.spp;
+  static double get s7 => 7.spp;
+  static double get s8 => 8.0.spp;
+  static double get s9 => 9.0.spp;
+  static double get s10 => 10.0.spp;
+  static double get s11 => 11.0.spp;
+  static double get s12 => 12.0.spp;
+  static double get s13 => 13.0.spp;
+  static double get s14 => 14.0.spp;
+  static double get s15 => 15.0.spp;
+  static double get s16 => 16.0.spp;
+  static double get s17 => 17.0.spp;
+  static double get s18 => 18.0.spp;
+  static double get s19 => 19.0.spp;
+  static double get s20 => 20.0.spp;
+  static double get s21 => 21.0.spp;
+  static double get s22 => 22.0.spp;
+  static double get s23 => 23.0.spp;
+  static double get s24 => 24.0.spp;
+  static double get s25 => 25.0.spp;
+  static double get s26 => 26.0.spp;
+  static double get s28 => 28.0.spp;
+  static double get s32 => 32.0.spp;
+  static double get s36 => 36.0.spp;
+  static double get s40 => 40.0.spp;
+  static double get s44 => 44.0.spp;
+  static double get s48 => 48.0.spp;
+  static double get s52 => 52.0.spp;
+  static double get s56 => 56.0.spp;
 }
 
 class ResponsiveFontSize {
