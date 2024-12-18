@@ -1,3 +1,7 @@
+## 0.2.2
+
+* handle README.md
+
 ## 0.2.1
 
 * fix: handle import in the package

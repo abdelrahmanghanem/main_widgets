@@ -46,7 +46,26 @@ To use the `MainScreen` widget in your Flutter project, follow these steps:
 dependencies:
   main_widgets: <latest_version>
 ```
+2. to handle responsive
 
+```dart
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    // this very important
+    MainWidgetsUtil.init(
+      context,
+      designSize: const Size(375, 812),
+      minTextAdapt: true,
+    );
+    return MaterialApp(
+      home: const HomeScreen(),
+    );
+  }
+}
+```
 
 
 
