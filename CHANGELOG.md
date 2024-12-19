@@ -1,3 +1,7 @@
+## 0.2.4
+
+* remove main button and add to buttonWidget
+
 ## 0.2.3
 
 * upgrade all dependencies packages

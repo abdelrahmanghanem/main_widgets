@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:main_button/main_button.dart';
 import 'package:main_widgets/src/screen_util/main_widgets_size_extension.dart';
 import 'package:smart_localize/smart_localize.dart';
 
@@ -35,9 +34,12 @@ class SmartEmptyWidget extends StatelessWidget {
 
   /// The text style to apply to the message.
   final TextStyle? messageStyle;
+
+  /// The text style to apply to the title.
   final TextStyle? titleStyle;
 
-  final ButtonModel? buttonModel;
+  /// buttonWidget.
+  final Widget? buttonWidget;
 
   const SmartEmptyWidget({
     super.key,
@@ -49,7 +51,7 @@ class SmartEmptyWidget extends StatelessWidget {
     this.type = EmptyType.text,
     this.messageStyle,
     this.titleStyle,
-    this.buttonModel,
+    this.buttonWidget,
   });
 
   @override
@@ -80,23 +82,9 @@ class SmartEmptyWidget extends StatelessWidget {
                         messageStyle ?? Theme.of(context).textTheme.bodySmall,
                   ),
                 ],
-                if (buttonModel != null) ...[
+                if (buttonWidget != null) ...[
                   SizedBox(height: 24.hh),
-                  if (buttonModel != null)
-                    MainButton.icon(
-                      onPressed: buttonModel!.onPressed,
-                      label: buttonModel!.label,
-                      iconType: buttonModel!.iconType ?? IconType.icon,
-                      width: buttonModel!.width ?? double.infinity,
-                      isLoading: buttonModel?.isLoading ?? false,
-                      isDisable: buttonModel?.isDisabled ?? false,
-                      backgroundColor: buttonModel?.backgroundColor ??
-                          Theme.of(context).primaryColor,
-                      textColor: buttonModel!.textColor,
-                      icon: buttonModel!.icon,
-                      imagePath: buttonModel!.imagePath,
-                      borderRadius: buttonModel!.borderRadius ?? 12.rr,
-                    ),
+                  buttonWidget!,
                 ],
               ],
             ),
@@ -124,32 +112,4 @@ class SmartEmptyWidget extends StatelessWidget {
         );
     }
   }
-}
-
-class ButtonModel {
-  final String label;
-  final double? width;
-  final void Function() onPressed;
-  final IconType? iconType;
-  final bool? isDisabled;
-  final bool? isLoading;
-  final Color? backgroundColor;
-  final Color? textColor;
-  final IconData? icon;
-  final String? imagePath;
-  final double? borderRadius;
-
-  const ButtonModel({
-    required this.label,
-    required this.onPressed,
-    this.width,
-    this.iconType,
-    this.isDisabled,
-    this.isLoading,
-    this.backgroundColor,
-    this.textColor,
-    this.icon,
-    this.imagePath,
-    this.borderRadius,
-  });
 }
