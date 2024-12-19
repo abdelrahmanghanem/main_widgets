@@ -1,4 +1,4 @@
-library main_widgets;
+library;
 
 export 'package:lottie/lottie.dart';
 

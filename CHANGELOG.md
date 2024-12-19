@@ -1,3 +1,7 @@
+## 0.2.3
+
+* upgrade all dependencies packages
+
 ## 0.2.2
 
 * handle README.md

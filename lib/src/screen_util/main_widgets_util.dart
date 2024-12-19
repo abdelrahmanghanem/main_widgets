@@ -15,13 +15,9 @@ class MainWidgetsUtil {
   static bool Function() _enableScaleWH = () => true;
   static bool Function() _enableScaleText = () => true;
 
-  /// UI设计中手机尺寸 , dp
   /// Size of the phone in UI Design , dp
   late Size _uiSize;
-
-  ///屏幕方向
   late Orientation _orientation;
-
   late bool _minTextAdapt;
   late MediaQueryData _data;
   late bool _splitScreenMode;
@@ -166,35 +162,27 @@ class MainWidgetsUtil {
   static bool get isTablet =>
       MainWidgetsUtil().deviceType(_context!) == DeviceType.tablet;
 
-  ///获取屏幕方向
   ///Get screen orientation
   Orientation get orientation => _orientation;
 
-  /// 每个逻辑像素的字体像素数，字体的缩放比例
   /// The number of font pixels for each logical pixel.
   double get textScaleFactor => _data.textScaleFactor;
 
-  /// 设备的像素密度
   /// The size of the media in logical pixels (e.g, the size of the screen).
   double? get pixelRatio => _data.devicePixelRatio;
 
-  /// 当前设备宽度 dp
   /// The horizontal extent of this size.
   double get screenWidth => _data.size.width;
 
-  ///当前设备高度 dp
   ///The vertical extent of this size. dp
   double get screenHeight => _data.size.height;
 
-  /// 状态栏高度 dp 刘海屏会更高
   /// The offset from the top, in dp
   double get statusBarHeight => _data.padding.top;
 
-  /// 底部安全区距离 dp
   /// The offset from the bottom, in dp
   double get bottomBarHeight => _data.padding.bottom;
 
-  /// 实际尺寸与UI设计的比例
   /// The ratio of actual width to UI design
   double get scaleWidth => !_enableScaleWH() ? 1 : screenWidth / _uiSize.width;
 
