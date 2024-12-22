@@ -1,3 +1,7 @@
+## 0.2.5
+
+* remove app font
+
 ## 0.2.4
 
 * remove main button and add to buttonWidget
