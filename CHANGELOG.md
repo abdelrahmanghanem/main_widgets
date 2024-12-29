@@ -1,3 +1,7 @@
+## 0.2.6
+
+* make update on SmartWelcomeWidget
+
 ## 0.2.5
 
 * remove app font

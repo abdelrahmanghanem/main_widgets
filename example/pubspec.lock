@@ -238,7 +238,7 @@ packages:
       path: ".."
       relative: true
     source: path
-    version: "0.2.3"
+    version: "0.2.6"
   matcher:
     dependency: transitive
     description:
@@ -376,10 +376,10 @@ packages:
     dependency: "direct main"
     description:
       name: smart_localize
-      sha256: b6bca99de212dd7139c337534f5ac2cb9d68719206d9f70f43dd86badf98d719
+      sha256: "8610c039bd11cfc50adaf2b6c92ff987858955ae04f5aa56689052d2e43e6ad2"
       url: "https://pub.dev"
     source: hosted
-    version: "0.0.13"
+    version: "0.0.16"
   source_span:
     dependency: transitive
     description:

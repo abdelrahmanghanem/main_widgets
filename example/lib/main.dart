@@ -11,18 +11,23 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    MainWidgetsUtil.init(context,
-        designSize: const Size(375, 812), minTextAdapt: true);
+    MainWidgetsUtil.init(
+      context,
+      designSize: const Size(375, 812),
+      minTextAdapt: true,
+    );
     return StyledToast(
       backgroundColor: Colors.red,
       textStyle: const TextStyle(
         color: Colors.black,
         fontSize: 16,
       ),
-      locale: const Locale('en', 'US'),
+      locale: const Locale('ar'),
+      // locale: const Locale('en', 'US'),
       child: MaterialApp(
         localizationsDelegates: context.smartLocalizeDelegates,
         title: 'Flutter Demo',
+        locale: const Locale('ar'),
         theme: ThemeData(
           colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
           useMaterial3: false,
@@ -41,12 +46,13 @@ class MyHomePage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-        title: const Text('home'),
+        title: Text(SmartLocalize.home),
       ),
       body: SmartScreen(
         builder: (context) {
           return Column(
             children: [
+              Text(SmartLocalize.goodAfternoon),
               const SizedBox(
                 height: 120,
               ),
@@ -60,8 +66,10 @@ class MyHomePage extends StatelessWidget {
               SmartWelcomeWidget(
                 userImage: '',
                 dateFormat: DateFormats.weekDay,
-                userName: 'ssssss ssss',
-                onTap: () {},
+                firstName: 'ssssss ssss',
+                onTap: () {
+                  print('lsllslslslsl');
+                },
               ),
               const Card(
                 child: SmartStatusWidget(
