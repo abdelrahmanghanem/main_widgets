@@ -1,3 +1,7 @@
+## 0.2.7
+
+* add new format for date format
+
 ## 0.2.6
 
 * make update on SmartWelcomeWidget

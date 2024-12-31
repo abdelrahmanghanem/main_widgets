@@ -57,11 +57,13 @@
 ///
 /// timeZone   =>  11:00 AM GMT+3
 ///
-/// french     =>  3 novembre 2023
+/// french     =>  3 november 2023
 ///
 /// german     =>  3. November 2023
 ///
 /// longIsoDate=>  2023-11-03T11:00:00.000
+///
+/// dayAndShortMonth =>  Sun, 28 Jan
 ///
 enum DateFormats {
   /// dateTime   =>  03/11/2023 - 11:00 AM
@@ -234,6 +236,11 @@ enum DateFormats {
   ///
   /// ISO 8601 format with milliseconds (YYYY-MM-DDTHH:mm:ss.sss).
   longIsoDate,
+
+  /// dayAndShortMonth =>  Sun, 28 Jan
+  ///
+  /// French date format ('EEE, dd MMM').
+  dayAndShortMonth,
 }
 
 extension DateFormatsExtension on DateFormats {
@@ -259,6 +266,8 @@ extension DateFormatsExtension on DateFormats {
         return "MMMM, yyyy";
       case DateFormats.numMonth:
         return "d MMM";
+      case DateFormats.dayAndShortMonth:
+        return 'EEE, dd MMM';
       case DateFormats.numDay:
         return "EEE";
       case DateFormats.fullDate:
@@ -301,9 +310,9 @@ extension DateFormatsExtension on DateFormats {
       case DateFormats.timeZone:
         return "hh:mm a z"; // Time zone info (e.g., 04:25 PM GMT+2)
       case DateFormats.french:
-        return "d MMMM yyyy"; // French Date format (e.g., 5 décembre 2024)
+        return "d MMMM yyyy"; // French Date format (e.g., 5 décember 2024)
       case DateFormats.german:
-        return "d. MMMM yyyy"; // German Date format (e.g., 5. Dezember 2024)
+        return "d. MMMM yyyy"; // German Date format (e.g., 5. December 2024)
       case DateFormats.longIsoDate:
         return "yyyy-MM-dd'T'HH:mm:ss.SSS"; // ISO 8601 with milliseconds
       case DateFormats.weekdayMonthDay:
