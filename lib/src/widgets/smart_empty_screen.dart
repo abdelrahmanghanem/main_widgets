@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:main_widgets/src/screen_util/main_widgets_size_extension.dart';
 import 'package:smart_localize/smart_localize.dart';
 
 /// Enum that defines the type of empty state to display.
@@ -60,14 +59,14 @@ class SmartEmptyWidget extends StatelessWidget {
       case EmptyType.image:
         // Displays an image (SVG) with a message when using the EmptyType.image.
         return Padding(
-          padding: padding ?? const EdgeInsets.all(12).rr,
+          padding: padding ?? const EdgeInsets.all(12),
           child: Center(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 SvgPicture.asset(emptyImage!),
-                SizedBox(height: 32.hh),
+                SizedBox(height: 32),
                 if (title != null)
                   Text(
                     title ?? SmartLocalize.noDataFound,
@@ -75,7 +74,7 @@ class SmartEmptyWidget extends StatelessWidget {
                     style: titleStyle ?? Theme.of(context).textTheme.labelLarge,
                   ),
                 if (message != null) ...[
-                  SizedBox(height: 12.hh),
+                  SizedBox(height: 12),
                   Text(
                     message ?? SmartLocalize.noDataFound,
                     style:
@@ -83,7 +82,7 @@ class SmartEmptyWidget extends StatelessWidget {
                   ),
                 ],
                 if (buttonWidget != null) ...[
-                  SizedBox(height: 24.hh),
+                  SizedBox(height: 24),
                   buttonWidget!,
                 ],
               ],
@@ -101,7 +100,7 @@ class SmartEmptyWidget extends StatelessWidget {
       case EmptyType.custom:
         // Displays a custom widget provided by the user when using the EmptyType.custom.
         return Padding(
-          padding: padding ?? const EdgeInsets.all(12).rr,
+          padding: padding ?? const EdgeInsets.all(12),
           child: Center(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,

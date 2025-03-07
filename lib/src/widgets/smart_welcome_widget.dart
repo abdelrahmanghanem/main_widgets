@@ -15,6 +15,7 @@ class SmartWelcomeWidget extends StatelessWidget {
   final TextStyle? dateStyle;
   final TextStyle? userNameStyle;
   final TextStyle? greetingStyle;
+
   const SmartWelcomeWidget({
     super.key,
     required this.firstName,
@@ -29,6 +30,7 @@ class SmartWelcomeWidget extends StatelessWidget {
     this.userNameStyle,
     this.greetingStyle,
   });
+
   @override
   Widget build(BuildContext context) {
     return Row(
@@ -38,11 +40,11 @@ class SmartWelcomeWidget extends StatelessWidget {
           child: Row(
             children: [
               SmartUserImage(
-                imageSize: imageSize ?? 40.rr,
+                imageSize: imageSize ?? 40,
                 displayName: '$firstName$lastName',
                 photo: userImage,
               ),
-              SizedBox(width: spaceBetween?.ww),
+              SizedBox(width: spaceBetween),
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -59,25 +61,13 @@ class SmartWelcomeWidget extends StatelessWidget {
                         _greeting,
                         style: greetingStyle ??
                             context.labelSmall?.copyWith(
-                              fontWeight: FontWeight.bold,
-                              fontSize: getSmartResponsive(
-                                mobile: 12.spp,
-                                tabletPortrait: 8.spp,
-                                tabletLandscape: 8.spp,
-                              ),
-                            ),
+                                fontWeight: FontWeight.bold, fontSize: 12),
                       ),
                       Text(
                         ' $firstName ',
                         style: userNameStyle ??
                             context.labelSmall?.copyWith(
-                              fontWeight: FontWeight.bold,
-                              fontSize: getSmartResponsive(
-                                mobile: 12.spp,
-                                tabletPortrait: 8.spp,
-                                tabletLandscape: 8.spp,
-                              ),
-                            ),
+                                fontWeight: FontWeight.bold, fontSize: 12),
                       ),
                     ],
                   ),

@@ -63,8 +63,8 @@ class DefaultProfileImage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: size ?? 42.ww,
-      height: size ?? 42.ww,
+      width: size ?? 42,
+      height: size ?? 42,
       padding: const EdgeInsets.all(8),
       decoration: BoxDecoration(
         shape: BoxShape.circle,

@@ -79,7 +79,7 @@ class SmartCachedImages extends StatelessWidget {
       borderRadius: borderRadius ??
           BorderRadius.all(
             Radius.circular(radius),
-          ).rr,
+          ),
       child: ColorFiltered(
         colorFilter: ColorFilter.mode(filterColor, BlendMode.darken),
         child: CachedNetworkImage(

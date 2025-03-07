@@ -27,7 +27,7 @@ class SmartStatusWidget extends StatelessWidget {
         child,
         PositionedDirectional(
           end: 0,
-          height: height.rr,
+          height: height,
           child: StatusWidget(
             height: height,
             borderRadius: borderRadius,
@@ -62,12 +62,11 @@ class StatusWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: height.rr,
-      padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4).rr,
+      height: height,
+      padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
       decoration: BoxDecoration(
         color: backgroundColor,
-        borderRadius:
-            borderRadius ?? BorderRadius.all(Radius.circular(radius)).rr,
+        borderRadius: borderRadius ?? BorderRadius.all(Radius.circular(radius)),
       ),
       child: Center(
         child: Text(

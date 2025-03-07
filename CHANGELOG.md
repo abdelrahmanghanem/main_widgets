@@ -1,3 +1,7 @@
+## 0.2.8
+
+* fix: remove responsive
+
 ## 0.2.7
 
 * add new format for date format

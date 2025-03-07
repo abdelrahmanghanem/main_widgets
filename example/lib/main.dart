@@ -11,11 +11,6 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    MainWidgetsUtil.init(
-      context,
-      designSize: const Size(375, 812),
-      minTextAdapt: true,
-    );
     return StyledToast(
       backgroundColor: Colors.red,
       textStyle: const TextStyle(
