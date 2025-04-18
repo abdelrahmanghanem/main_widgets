@@ -62,9 +62,7 @@ class MyHomePage extends StatelessWidget {
                 userImage: '',
                 dateFormat: DateFormats.weekDay,
                 firstName: 'ssssss ssss',
-                onTap: () {
-                  print('lsllslslslsl');
-                },
+                onTap: () {},
               ),
               const Card(
                 child: SmartStatusWidget(

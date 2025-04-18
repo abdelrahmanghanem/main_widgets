@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:flutter/material.dart';
 
 import '../toast/styled_toast.dart';
@@ -64,13 +62,12 @@ void showToastSmart({
             ),
           ),
         ),
-        context: context,
+        context: context?.mounted == true ? context : null,
         animation: StyledToastAnimation.fade,
         animDuration: const Duration(milliseconds: 100),
         duration: const Duration(seconds: 3),
         dismissOtherToast: true,
       );
-      log('msg => $msg');
     },
   );
 }
