@@ -51,6 +51,7 @@ class SmartScreen extends StatelessWidget {
       context: context,
       refreshColor: refreshColor,
       refreshBackgroundColor: Theme.of(context).primaryColor,
+      loadingWidget: loadingWidget,
     );
   }
 }
@@ -66,11 +67,11 @@ Widget getWidget({
   required bool isLoading,
   required bool isEmpty,
   required Widget Function(BuildContext context) builder,
-  Widget? emptyWidget,
-  Widget? loadingWidget,
-  String? message,
-  Color? refreshColor,
-  Color? refreshBackgroundColor,
+  required Widget? emptyWidget,
+  required Widget? loadingWidget,
+  required String? message,
+  required Color? refreshColor,
+  required Color? refreshBackgroundColor,
   required Future<void> Function()? onRefresh,
 }) {
   if (isLoading) {
