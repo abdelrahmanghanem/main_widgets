@@ -1,3 +1,7 @@
+## 0.2.9
+
+* add option to pass a custom loading widget
+
 ## 0.2.8
 
 * fix: remove responsive
