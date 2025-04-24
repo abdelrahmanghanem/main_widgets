@@ -18,6 +18,9 @@ class SmartScreen extends StatelessWidget {
   /// A custom widget to display when the data is empty. If not provided, a default empty screen will be used.
   final Widget? emptyWidget;
 
+  /// A custom widget to display when the data is loading. If not provided, a default loading indicator will be used.
+  final Widget? loadingWidget;
+
   /// An optional message to display in the empty state widget.
   final String? message;
   final Color? refreshColor;
@@ -33,6 +36,7 @@ class SmartScreen extends StatelessWidget {
     this.onRefresh,
     this.refreshColor,
     this.refreshBackgroundColor,
+    this.loadingWidget,
   });
 
   @override
@@ -47,6 +51,7 @@ class SmartScreen extends StatelessWidget {
       context: context,
       refreshColor: refreshColor,
       refreshBackgroundColor: Theme.of(context).primaryColor,
+      loadingWidget: loadingWidget,
     );
   }
 }
@@ -62,13 +67,15 @@ Widget getWidget({
   required bool isLoading,
   required bool isEmpty,
   required Widget Function(BuildContext context) builder,
-  Widget? emptyWidget,
-  String? message,
-  Color? refreshColor,
-  Color? refreshBackgroundColor,
+  required Widget? emptyWidget,
+  required Widget? loadingWidget,
+  required String? message,
+  required Color? refreshColor,
+  required Color? refreshBackgroundColor,
   required Future<void> Function()? onRefresh,
 }) {
   if (isLoading) {
+    if (loadingWidget != null) return loadingWidget;
     // Displays a loading widget when data is being fetched.
     return const SmartLoadingWidget();
   } else if (isEmpty) {
