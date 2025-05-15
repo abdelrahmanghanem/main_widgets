@@ -8,26 +8,27 @@ void main() {
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
+  final local = const Locale('en');
 
   @override
   Widget build(BuildContext context) {
-    return StyledToast(
-      backgroundColor: Colors.red,
-      textStyle: const TextStyle(
-        color: Colors.black,
-        fontSize: 16,
+    return MaterialApp(
+      title: 'Flutter Demo',
+      locale: local,
+      localizationsDelegates: context.smartLocalizeDelegates,
+      theme: ThemeData(
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+        useMaterial3: true,
       ),
-      locale: const Locale('ar'),
-      // locale: const Locale('en', 'US'),
-      child: MaterialApp(
-        localizationsDelegates: context.smartLocalizeDelegates,
-        title: 'Flutter Demo',
-        locale: const Locale('ar'),
-        theme: ThemeData(
-          colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-          useMaterial3: false,
-        ),
-        home: const MyHomePage(),
+      supportedLocales: [Locale('ar'), Locale('en')],
+      home: Builder(
+        builder: (context) {
+          return StyledToast(
+            locale: local,
+            textDirection: Directionality.of(context),
+            child: const MyHomePage(),
+          );
+        },
       ),
     );
   }
@@ -52,16 +53,16 @@ class MyHomePage extends StatelessWidget {
                 height: 120,
               ),
               const SmartUserImage(
-                displayName: 'ssssss ssss',
+                displayName: 'Mahmoud',
                 photo: '',
               ),
               const DefaultProfileImage(
-                displayName: 'ssssss ssss',
+                displayName: 'Mahmoud',
               ),
               SmartWelcomeWidget(
                 userImage: '',
                 dateFormat: DateFormats.weekDay,
-                firstName: 'ssssss ssss',
+                firstName: 'Mahmoud',
                 onTap: () {},
               ),
               const Card(
