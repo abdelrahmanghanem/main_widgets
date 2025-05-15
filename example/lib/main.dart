@@ -8,25 +8,23 @@ void main() {
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
+  final local = const Locale('ar');
 
   @override
   Widget build(BuildContext context) {
     return StyledToast(
-      backgroundColor: Colors.red,
-      textStyle: const TextStyle(
-        color: Colors.black,
-        fontSize: 16,
-      ),
-      locale: const Locale('ar'),
-      // locale: const Locale('en', 'US'),
+      locale: local,
+      textDirection:
+          local.languageCode == 'ar' ? TextDirection.rtl : TextDirection.ltr,
       child: MaterialApp(
-        localizationsDelegates: context.smartLocalizeDelegates,
         title: 'Flutter Demo',
-        locale: const Locale('ar'),
+        locale: local,
+        localizationsDelegates: context.smartLocalizeDelegates,
         theme: ThemeData(
           colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-          useMaterial3: false,
+          useMaterial3: true,
         ),
+        supportedLocales: [Locale('ar'), Locale('en')],
         home: const MyHomePage(),
       ),
     );
@@ -52,16 +50,16 @@ class MyHomePage extends StatelessWidget {
                 height: 120,
               ),
               const SmartUserImage(
-                displayName: 'ssssss ssss',
+                displayName: 'Mahmoud',
                 photo: '',
               ),
               const DefaultProfileImage(
-                displayName: 'ssssss ssss',
+                displayName: 'Mahmoud',
               ),
               SmartWelcomeWidget(
                 userImage: '',
                 dateFormat: DateFormats.weekDay,
-                firstName: 'ssssss ssss',
+                firstName: 'Mahmoud',
                 onTap: () {},
               ),
               const Card(
@@ -91,6 +89,14 @@ class MyHomePage extends StatelessWidget {
                 backgroundColor: Colors.red,
               ),
               TextButton(
+                onPressed: () => Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => SecondScreen(),
+                    )),
+                child: const Text('Navigate To Second Screen'),
+              ),
+              TextButton(
                 onPressed: () => showToastError(
                   msg: 'show Toast Error',
                 ),
@@ -105,6 +111,35 @@ class MyHomePage extends StatelessWidget {
             ],
           );
         },
+      ),
+    );
+  }
+}
+
+class SecondScreen extends StatelessWidget {
+  const SecondScreen({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Second Screen'),
+      ),
+      body: Column(
+        children: [
+          TextButton(
+            onPressed: () => showToastError(
+              msg: 'show Toast Error',
+            ),
+            child: const Text('Show Toast Error'),
+          ),
+          TextButton(
+            onPressed: () => showToastSuccess(
+              msg: 'show Toast Success',
+            ),
+            child: const Text('Show Toast Success'),
+          ),
+        ],
       ),
     );
   }
