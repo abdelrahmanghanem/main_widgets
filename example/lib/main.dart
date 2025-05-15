@@ -8,27 +8,24 @@ void main() {
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
-  final local = const Locale('en');
+  final local = const Locale('ar');
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Demo',
+    return StyledToast(
       locale: local,
-      localizationsDelegates: context.smartLocalizeDelegates,
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: true,
-      ),
-      supportedLocales: [Locale('ar'), Locale('en')],
-      home: Builder(
-        builder: (context) {
-          return StyledToast(
-            locale: local,
-            textDirection: Directionality.of(context),
-            child: const MyHomePage(),
-          );
-        },
+      textDirection:
+          local.languageCode == 'ar' ? TextDirection.rtl : TextDirection.ltr,
+      child: MaterialApp(
+        title: 'Flutter Demo',
+        locale: local,
+        localizationsDelegates: context.smartLocalizeDelegates,
+        theme: ThemeData(
+          colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+          useMaterial3: true,
+        ),
+        supportedLocales: [Locale('ar'), Locale('en')],
+        home: const MyHomePage(),
       ),
     );
   }
@@ -92,6 +89,14 @@ class MyHomePage extends StatelessWidget {
                 backgroundColor: Colors.red,
               ),
               TextButton(
+                onPressed: () => Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => SecondScreen(),
+                    )),
+                child: const Text('Navigate To Second Screen'),
+              ),
+              TextButton(
                 onPressed: () => showToastError(
                   msg: 'show Toast Error',
                 ),
@@ -106,6 +111,35 @@ class MyHomePage extends StatelessWidget {
             ],
           );
         },
+      ),
+    );
+  }
+}
+
+class SecondScreen extends StatelessWidget {
+  const SecondScreen({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Second Screen'),
+      ),
+      body: Column(
+        children: [
+          TextButton(
+            onPressed: () => showToastError(
+              msg: 'show Toast Error',
+            ),
+            child: const Text('Show Toast Error'),
+          ),
+          TextButton(
+            onPressed: () => showToastSuccess(
+              msg: 'show Toast Success',
+            ),
+            child: const Text('Show Toast Success'),
+          ),
+        ],
       ),
     );
   }
