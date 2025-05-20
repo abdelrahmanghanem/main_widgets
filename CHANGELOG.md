@@ -1,3 +1,7 @@
+## 0.2.10
+
+* fix: Toast Text Direction & Status Colors
+
 ## 0.2.9
 
 * add option to pass a custom loading widget
