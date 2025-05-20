@@ -73,8 +73,7 @@ class StatusWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       height: height,
-      padding:
-          padding ?? const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+      padding: padding ?? const EdgeInsets.symmetric(horizontal: 4),
       decoration: BoxDecoration(
         color: backgroundColor,
         borderRadius: borderRadius ?? BorderRadius.all(Radius.circular(radius)),
@@ -82,8 +81,10 @@ class StatusWidget extends StatelessWidget {
       child: Center(
         child: Text(
           text,
+          textAlign: TextAlign.center,
+          overflow: TextOverflow.ellipsis,
           style: style ??
-              context.labelMedium?.copyWith(
+              context.bodySmall?.copyWith(
                 color: textColor,
               ),
         ),
