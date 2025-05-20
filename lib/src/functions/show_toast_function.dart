@@ -81,7 +81,7 @@ void showToastError({
   showToastSmart(
     msg: msg,
     status: ToastStatus.failure,
-    backgroundColor: backgroundColor,
+    backgroundColor: backgroundColor ?? Colors.red,
     icon: icon ?? const Icon(Icons.cancel),
     context: context,
   );
@@ -96,7 +96,7 @@ void showToastSuccess({
   showToastSmart(
     msg: msg,
     status: ToastStatus.success,
-    backgroundColor: backgroundColor,
+    backgroundColor: backgroundColor ?? Colors.green,
     icon: icon ?? const Icon(Icons.check_circle),
     context: context,
   );

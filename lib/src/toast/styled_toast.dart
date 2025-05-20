@@ -90,7 +90,7 @@ ToastFuture showToast(
         borderRadius: borderRadius,
       );
 
-  textDirection ??= toastTheme?.textDirection ?? TextDirection.ltr;
+  textDirection ??= toastTheme?.textDirection;
 
   textAlign ??= toastTheme?.textAlign ?? TextAlign.center;
 
@@ -121,7 +121,7 @@ ToastFuture showToast(
     onDismiss: onDismiss,
     position: position,
     dismissOtherToast: dismissOtherToast,
-    textDirection: textDirection,
+    textDirection: textDirection ?? Directionality.maybeOf(context),
     alignment: alignment,
     axis: axis,
     startOffset: startOffset,
@@ -183,8 +183,7 @@ ToastFuture showToastWidget({
 
   dismissOtherToast ??= toastTheme?.dismissOtherOnShow ?? true;
 
-  textDirection ??=
-      textDirection ?? toastTheme?.textDirection ?? TextDirection.ltr;
+  textDirection ??= textDirection ?? toastTheme?.textDirection;
 
   position ??= toastTheme?.toastPositions ?? StyledToastPosition.bottom;
 
@@ -250,7 +249,10 @@ ToastFuture showToastWidget({
         reverseAnimBuilder: reverseAnimBuilder,
         onInitState: onInitState,
         child: Directionality(
-          textDirection: textDirection!,
+          textDirection: textDirection ??
+              Directionality.maybeOf(ctx) ??
+              Directionality.maybeOf(context!) ??
+              TextDirection.ltr,
           child: Material(
             color: Colors.transparent,
             child: builder(context, toastTheme),
@@ -417,10 +419,11 @@ class _StyledToastState extends State<StyledToast> {
       ],
     );
 
-    final textDirection = widget.textDirection ?? TextDirection.ltr;
+    final textDirection = widget.textDirection;
 
     final wrapper = Directionality(
-      textDirection: textDirection,
+      textDirection:
+          textDirection ?? Directionality.maybeOf(context) ?? TextDirection.ltr,
       child: Stack(
         children: <Widget>[
           overlay,

@@ -4,18 +4,23 @@ import 'package:main_widgets/main_widgets.dart';
 class SmartStatusWidget extends StatelessWidget {
   final double height;
   final BorderRadiusGeometry? borderRadius;
-  final Color backgroundColor;
-  final Color textColor;
+  final Color? backgroundColor;
+  final Color? textColor;
   final String text;
   final Widget child;
+  final TextStyle? style;
+  final EdgeInsetsGeometry? padding;
+
   const SmartStatusWidget({
     super.key,
     this.height = 26,
     this.borderRadius,
-    required this.backgroundColor,
-    required this.textColor,
+    this.backgroundColor,
+    this.textColor,
     required this.text,
     required this.child,
+    this.style,
+    this.padding,
   });
 
   @override
@@ -34,6 +39,7 @@ class SmartStatusWidget extends StatelessWidget {
             backgroundColor: backgroundColor,
             textColor: textColor,
             text: text,
+            padding: padding,
           ),
         ),
       ],
@@ -44,26 +50,30 @@ class SmartStatusWidget extends StatelessWidget {
 class StatusWidget extends StatelessWidget {
   final double height;
   final BorderRadiusGeometry? borderRadius;
-  final Color backgroundColor;
-  final Color textColor;
+  final Color? backgroundColor;
+  final Color? textColor;
   final String text;
   final double radius;
+  final TextStyle? style;
+  final EdgeInsetsGeometry? padding;
 
   const StatusWidget({
     super.key,
+    required this.text,
     this.height = 26,
     this.borderRadius,
-    required this.backgroundColor,
-    required this.textColor,
-    required this.text,
+    this.backgroundColor,
+    this.textColor,
     this.radius = 10,
+    this.style,
+    this.padding,
   });
 
   @override
   Widget build(BuildContext context) {
     return Container(
       height: height,
-      padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+      padding: padding ?? const EdgeInsets.symmetric(horizontal: 4),
       decoration: BoxDecoration(
         color: backgroundColor,
         borderRadius: borderRadius ?? BorderRadius.all(Radius.circular(radius)),
@@ -71,9 +81,12 @@ class StatusWidget extends StatelessWidget {
       child: Center(
         child: Text(
           text,
-          style: context.labelMedium?.copyWith(
-            color: textColor,
-          ),
+          textAlign: TextAlign.center,
+          overflow: TextOverflow.ellipsis,
+          style: style ??
+              context.bodySmall?.copyWith(
+                color: textColor,
+              ),
         ),
       ),
     );
