@@ -44,6 +44,7 @@ class SmartCachedImages extends StatelessWidget {
 
   /// A color filter to apply to the image. Defaults to [Colors.transparent].
   final Color filterColor;
+  final Color? color;
 
   /// A widget to display while the image is loading.
   final Widget placeholder;
@@ -62,7 +63,8 @@ class SmartCachedImages extends StatelessWidget {
   const SmartCachedImages({
     super.key,
     required this.imageUrl,
-    this.filterColor = Colors.transparent,
+    @Deprecated("Use 'color' instead") this.filterColor = Colors.transparent,
+    this.color = Colors.transparent,
     this.httpHeaders = const {"Access-Control-Allow-Origin": "*"},
     this.radius = 12,
     this.fit = BoxFit.cover,
@@ -81,7 +83,7 @@ class SmartCachedImages extends StatelessWidget {
             Radius.circular(radius),
           ),
       child: ColorFiltered(
-        colorFilter: ColorFilter.mode(filterColor, BlendMode.darken),
+        colorFilter: ColorFilter.mode(color ?? filterColor, BlendMode.darken),
         child: CachedNetworkImage(
           imageUrl: imageUrl,
           width: width,

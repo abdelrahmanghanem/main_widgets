@@ -75,6 +75,7 @@ class MyHomePage extends StatelessWidget {
                       children: [
                         SmartCachedImages(
                           imageUrl: '',
+                          filterColor: Colors.black,
                           height: 120,
                         ),
                         Text('title'),

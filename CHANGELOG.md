@@ -1,3 +1,6 @@
+## 0.2.11
+
+* update to new version
 ## 0.2.10
 
 * fix: Toast Text Direction & Status Colors
